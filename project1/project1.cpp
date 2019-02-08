@@ -14,20 +14,42 @@ int main()
 {
 	try
 	{
+
+		{
+			/* sequence copy test*/
+			Sequence data(4);
+
+			data[0] = 100;
+			data[1] = 200;
+			Sequence data2(data);
+			cout << data2[0] << "  sequence copied successfully?";
+		}
+
+		{
+			/* sequence assignment operator test*/
+			Sequence data(2);
+
+			data[0] = 100;
+			data[1] = 200;
+			Sequence data2=data;
+			cout << data2[0] << "  sequence assignment  worked successfully?";
+		}
 		{
 			Sequence data(4);
 			
-		/*	data[0] = 100;
+			data[0] = 100;
 			data[1] = 200;
+			
 			cout << "before calling testCopyConstructor: " << data << endl;
 			testCopyConstructor(data);
-			cout << "after calling testCopyConstructor: " << data << endl;*/
+			cout << "after calling testCopyConstructor: " << data << endl;
 		}
-
+		//this looks like bounce check block 
 		{
 		/*	Sequence data(4);
 			data[5] = 100;*/
 		}
+		
 	}
 	catch (exception& e)
 	{
@@ -37,6 +59,6 @@ int main()
 
 void testCopyConstructor(Sequence s)
 {
-/*	cout << "inside testCopyConstructor: " << s << endl;
-	s[0] = -1;*/
+	cout << "inside testCopyConstructor: " << s << endl;
+	s[0] = -1;
 }

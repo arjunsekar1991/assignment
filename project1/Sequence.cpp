@@ -6,7 +6,7 @@ Sequence::Sequence(size_type sz)
 {
 	numElts = sz;
 	elts = new value_type[sz];
-	for (int i = 0; i < numElts; i++)
+	for (size_type i = 0; i < numElts; i++)
 		//need to intialize as undefined right now let it be 0
 		elts[i] =0;
 
@@ -19,20 +19,41 @@ Sequence::~Sequence()
 
 Sequence::Sequence(const Sequence& s)
 {
-	cout << "Actual copy constructor form sequence .cpp";
+	numElts = s.numElts;
+	elts = new value_type[numElts];
+	for (size_type i = 0; i < numElts; i++)
+		elts[i] = s.elts[i];
+	
 
-}
-
-/*
-
-
-Sequence& Sequence::operator=(const Sequence& s)
-{
 }
 
 Sequence::value_type& Sequence::operator[](size_type position)
 {
+	return elts[position];
 }
+
+Sequence& Sequence::operator=(const Sequence& s)
+{
+	if (this != &s)
+	{
+		delete[] elts;
+
+		numElts = s.numElts;
+		elts = new value_type[numElts];
+		for (int i = 0; i < numElts; i++)
+		{
+			elts[i] = s.elts[i];
+		}
+	}
+
+	return *this;
+}
+/*
+
+
+
+
+
 
 Sequence::value_type& Sequence::at(size_type position)
 {
@@ -78,7 +99,9 @@ ostream& Sequence::print(ostream& os)
 {
 }
 
-
+*/
 ostream& operator<<(ostream& os, Sequence& s)
 {
-}*/
+	os << s;
+	return os;
+}
