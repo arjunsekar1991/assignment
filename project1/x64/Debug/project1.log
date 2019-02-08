@@ -1,3 +1,6 @@
-﻿  Sequence.cpp
+﻿  pch.cpp
+  Sequence.cpp
 c:\users\arjun\documents\github\assignment\assignment\project1\sequence.cpp(9): warning C4018: '<': signed/unsigned mismatch
+  project1.cpp
+  Generating Code...
   project1.vcxproj -> C:\Users\arjun\Documents\Github\assignment\assignment\x64\Debug\project1.exe

@@ -94,9 +94,10 @@ public:
 	typedef unsigned int size_type;					// data type of sequence counts and / or sizes
 
 	Sequence(size_type sz = 0);					// creates a sequence indexed from 0 ... sz
-
-	/*Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
-	~Sequence();									// destroys the sequence
+	Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
+	~Sequence();  // destroys the sequence
+	/*
+										
 
 	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
 

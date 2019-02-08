@@ -12,13 +12,19 @@ Sequence::Sequence(size_type sz)
 
 }
 
-/*Sequence::Sequence(const Sequence& s)
-{
-}
-
 Sequence::~Sequence()
 {
+	delete[] elts;
 }
+
+Sequence::Sequence(const Sequence& s)
+{
+	cout << "Actual copy constructor form sequence .cpp";
+
+}
+
+/*
+
 
 Sequence& Sequence::operator=(const Sequence& s)
 {
