@@ -16,7 +16,7 @@ int main()
 	{
 		{
 			Sequence data(4);
-			// remove below line
+			
 		/*	data[0] = 100;
 			data[1] = 200;
 			cout << "before calling testCopyConstructor: " << data << endl;

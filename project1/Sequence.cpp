@@ -6,10 +6,10 @@ Sequence::Sequence(size_type sz)
 {
 	numElts = sz;
 	elts = new value_type[sz];
-	for (int i = 0; i <= numElts; i++)
+	for (int i = 0; i < numElts; i++)
+		//need to intialize as undefined right now let it be 0
 		elts[i] =0;
-	for (size_type  i = 0; i <= numElts; i++)
-		cout << elts[i];
+
 }
 
 /*Sequence::Sequence(const Sequence& s)
