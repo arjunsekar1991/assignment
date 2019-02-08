@@ -4,7 +4,12 @@
 //using namespace std;
 Sequence::Sequence(size_type sz)
 {
-	cout << "constructor started";
+	numElts = sz;
+	elts = new value_type[sz];
+	for (int i = 0; i <= numElts; i++)
+		elts[i] =0;
+	for (size_type  i = 0; i <= numElts; i++)
+		cout << elts[i];
 }
 
 /*Sequence::Sequence(const Sequence& s)

@@ -11,4 +11,6 @@
 
 // TODO: add headers that you want to pre-compile here
 #include "sequence.h"
+#include <iostream>
+#include <iomanip>
 #endif //PCH_H
