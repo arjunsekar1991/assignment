@@ -121,15 +121,16 @@ public:
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 
 	ostream& print(ostream& = cout);	*/			// prints the items as a comma seperated sequence
-private:
+	private:
 
 	// insert private information as needed
 
 	value_type* elts;
 	size_type numElts;
+	friend ostream& operator<<(ostream&, Sequence&);
 };
 
-ostream& operator<<(ostream&, Sequence&);
+
 
 #endif
 

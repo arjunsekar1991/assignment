@@ -8,7 +8,7 @@ Sequence::Sequence(size_type sz)
 	elts = new value_type[sz];
 	for (size_type i = 0; i < numElts; i++)
 		//need to intialize as undefined right now let it be 0
-		elts[i] =0;
+		elts[i] = 0;
 
 }
 
@@ -23,7 +23,7 @@ Sequence::Sequence(const Sequence& s)
 	elts = new value_type[numElts];
 	for (size_type i = 0; i < numElts; i++)
 		elts[i] = s.elts[i];
-	
+
 
 }
 
@@ -95,13 +95,18 @@ void Sequence::erase(size_type position, size_type count)
 {
 }
 
-ostream& Sequence::print(ostream& os)
-{
-}
+
 
 */
-ostream& operator<<(ostream& os, Sequence& s)
+
+
+ ostream& operator<<(ostream& os, Sequence& s)
 {
-	os << s;
+	//os << s;
+	//return os;
+
+	for (Sequence::size_type i = 0; i < s.numElts; i++)
+		//need to intialize as undefined right now let it be 0
+		os<<s.elts[i];
 	return os;
 }

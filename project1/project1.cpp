@@ -22,7 +22,8 @@ int main()
 			data[0] = 100;
 			data[1] = 200;
 			Sequence data2(data);
-			cout << data2[0] << "  sequence copied successfully?";
+			data[0] = 0;
+			cout << data2[0] << "  sequence copied successfully?"<<endl;
 		}
 
 		{
@@ -32,7 +33,8 @@ int main()
 			data[0] = 100;
 			data[1] = 200;
 			Sequence data2=data;
-			cout << data2[0] << "  sequence assignment  worked successfully?";
+			data[0] = 0;
+			cout << data2[0] << "  sequence assignment  worked successfully?"<<endl;
 		}
 		{
 			Sequence data(4);
