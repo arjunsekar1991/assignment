@@ -101,6 +101,7 @@ public:
 	value_type& at(size_type p);					// return a reference to the item at index position p
 	void push_back(const value_type& v);			// add v to the end of the sequence
 	void pop_back();								// remove item at the end of the sequence
+	size_type size() const;
 	/*
 										
 

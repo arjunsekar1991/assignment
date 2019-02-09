@@ -43,7 +43,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 
 		numElts = s.numElts;
 		elts = new value_type[numElts];
-		for (int i = 0; i < numElts; i++)
+		for (value_type i = 0; i < numElts; i++)
 		{
 			elts[i] = s.elts[i];
 		}
@@ -73,13 +73,18 @@ void Sequence::push_back(const value_type& value)
 void Sequence::pop_back()
 {
 	
-	cout << numElts;
 	value_type * tempElts = new value_type[numElts - 1];
 	for (size_type i = 0; i < numElts-1; i++)
 		tempElts[i] = elts[i];
-	
+	delete[] elts;
 	elts = tempElts;
+	numElts--;
 	
+}
+
+Sequence::size_type Sequence::size() const
+{
+	return this->numElts;
 }
 
 /*
@@ -104,9 +109,7 @@ bool Sequence::empty() const
 {
 }
 
-Sequence::size_type Sequence::size() const
-{
-}
+
 
 void Sequence::clear()
 {

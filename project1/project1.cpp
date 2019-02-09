@@ -106,6 +106,7 @@ int main()
 		cout << "popback function test" << endl;
 		cout << "value at index 0 is" << data[0] << endl;
 		cout << "end of popack test" << endl;
+		cout << "after pop size reduced from 2 to" << data.size()<<endl;
 		cout << "did i get invalid index " << data[1] << endl;
 
 
