@@ -48,20 +48,23 @@ Sequence& Sequence::operator=(const Sequence& s)
 
 	return *this;
 }
-/*
-
-
-
-
-
-
 Sequence::value_type& Sequence::at(size_type position)
 {
+	if (position >= numElts) {
+		throw exception("invalid sequence index");
+	}
+	return elts[position];
 }
 
 void Sequence::push_back(const value_type& value)
 {
+
 }
+
+/*
+
+
+
 
 void Sequence::pop_back()
 {

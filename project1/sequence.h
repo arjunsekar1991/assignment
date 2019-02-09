@@ -98,15 +98,12 @@ public:
 	~Sequence();                                 // destroys the sequence 
 	value_type& operator[](size_type p);			// return a reference to the item at index position p
 	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
+	value_type& at(size_type p);					// return a reference to the item at index position p
+	void push_back(const value_type& v);			// add v to the end of the sequence
 	/*
 										
 
 	
-
-	
-	value_type& at(size_type p);					// return a reference to the item at index position p
-
-	void push_back(const value_type& v);			// add v to the end of the sequence
 	void pop_back();								// remove item at the end of the sequence
 
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p

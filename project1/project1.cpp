@@ -51,6 +51,13 @@ int main()
 		/*	Sequence data(4);
 			data[5] = 100;*/
 		}
+		//at member function test method
+		{
+			Sequence data(2);
+			data[0] = 100;
+			cout << "At method works ? "<<data.at(0);
+			cout << "At method fails?" << data.at(2);
+		}
 		
 	}
 	catch (exception& e)
