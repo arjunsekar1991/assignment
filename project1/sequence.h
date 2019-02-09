@@ -125,6 +125,7 @@ public:
 	value_type* elts;
 	size_type numElts;
 	friend ostream& operator<<(ostream&, Sequence&);
+	value_type* tempElts;
 };
 
 

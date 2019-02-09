@@ -58,7 +58,12 @@ Sequence::value_type& Sequence::at(size_type position)
 
 void Sequence::push_back(const value_type& value)
 {
-
+	//numElts = numElts+1;
+	tempElts = new value_type[numElts+1];
+	for (size_type i = 0; i < numElts; i++)
+		tempElts[i] = elts[i];
+	delete [] elts;
+	elts = tempElts;
 }
 
 /*

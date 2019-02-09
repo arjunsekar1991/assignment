@@ -58,7 +58,12 @@ int main()
 			cout << "At method works ? "<<data.at(0);
 			cout << "At method fails?" << data.at(2);
 		}
-		
+		{
+			Sequence data(1);
+			data[0] = 0;
+			data.push_back(100);
+			cout << "is the push back method delete" <<data[1];
+		}
 	}
 	catch (exception& e)
 	{
