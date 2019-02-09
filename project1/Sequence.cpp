@@ -9,12 +9,12 @@ Sequence::Sequence(size_type sz)
 	for (size_type i = 0; i < numElts; i++)
 		//need to intialize as undefined right now let it be 0
 		elts[i] = 0;
-
 }
 
 Sequence::~Sequence()
 {
 	delete[] elts;
+	
 }
 
 Sequence::Sequence(const Sequence& s)
@@ -29,6 +29,9 @@ Sequence::Sequence(const Sequence& s)
 
 Sequence::value_type& Sequence::operator[](size_type position)
 {
+	if (position >= numElts) {
+		throw exception("invalid sequence index");
+	}
 	return elts[position];
 }
 
@@ -58,12 +61,25 @@ Sequence::value_type& Sequence::at(size_type position)
 
 void Sequence::push_back(const value_type& value)
 {
-	//numElts = numElts+1;
-	tempElts = new value_type[numElts+1];
+	
+	value_type * tempElts = new value_type[numElts+1];
 	for (size_type i = 0; i < numElts; i++)
 		tempElts[i] = elts[i];
-	delete [] elts;
+	tempElts[numElts] = value;
+	delete[] elts;
 	elts = tempElts;
+	numElts++;
+}
+void Sequence::pop_back()
+{
+	
+	cout << numElts;
+	value_type * tempElts = new value_type[numElts - 1];
+	for (size_type i = 0; i < numElts-1; i++)
+		tempElts[i] = elts[i];
+	
+	elts = tempElts;
+	
 }
 
 /*
@@ -71,9 +87,6 @@ void Sequence::push_back(const value_type& value)
 
 
 
-void Sequence::pop_back()
-{
-}
 
 void Sequence::insert(size_type position, value_type value)
 {

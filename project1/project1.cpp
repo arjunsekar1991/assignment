@@ -15,7 +15,7 @@ int main()
 	try
 	{
 
-		{
+		
 			/* sequence copy test*/
 			Sequence data(4);
 
@@ -24,9 +24,14 @@ int main()
 			Sequence data2(data);
 			data[0] = 0;
 			cout << data2[0] << "  sequence copied successfully?"<<endl;
-		}
-
-		{
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
+	try{
+		
 			/* sequence assignment operator test*/
 			Sequence data(2);
 
@@ -35,8 +40,14 @@ int main()
 			Sequence data2=data;
 			data[0] = 0;
 			cout << data2[0] << "  sequence assignment  worked successfully?"<<endl;
-		}
-		{
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
+	try{
+		
 			Sequence data(4);
 			
 			data[0] = 100;
@@ -45,25 +56,60 @@ int main()
 			cout << "before calling testCopyConstructor: " << data << endl;
 			testCopyConstructor(data);
 			cout << "after calling testCopyConstructor: " << data << endl;
-		}
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
 		//this looks like bounce check block 
 		{
 		/*	Sequence data(4);
 			data[5] = 100;*/
 		}
-		//at member function test method
-		{
-			Sequence data(2);
-			data[0] = 100;
-			cout << "At method works ? "<<data.at(0);
-			cout << "At method fails?" << data.at(2);
-		}
-		{
+		
+		
+		//push back method test method 
+	try{
+		
 			Sequence data(1);
 			data[0] = 0;
 			data.push_back(100);
-			cout << "is the push back method delete" <<data[1];
-		}
+			cout << "is the push back method work" <<data[1]<<endl;
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
+		//at member function test method
+	try
+		{
+			Sequence data(2);
+			data[0] = 100;
+			cout << "At method works ? " << data.at(0);
+			cout << "At method fails?" << data.at(2);
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
+
+	// pop back member function test method
+	try {
+
+		Sequence data(2);
+		data[0] = 100;
+		data[1] = 200;
+		data.pop_back();
+		cout << "popback function test" << endl;
+		cout << "value at index 0 is" << data[0] << endl;
+		cout << "end of popack test" << endl;
+		cout << "did i get invalid index " << data[1] << endl;
+
+
+
 	}
 	catch (exception& e)
 	{
