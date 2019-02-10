@@ -116,6 +116,20 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl;
 	}
+
+
+	try {
+
+		Sequence data(2);
+		data[0] = 100;
+		data[1] = 200;
+		cout << "data in front" << data.front()<<endl;
+		cout << "data in back" << data.back() << endl;
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
 }
 
 void testCopyConstructor(Sequence s)

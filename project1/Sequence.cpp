@@ -86,7 +86,15 @@ Sequence::size_type Sequence::size() const
 {
 	return this->numElts;
 }
+const Sequence::value_type& Sequence::front() const
+{
+	return this->elts[0];
+}
 
+const Sequence::value_type& Sequence::back() const
+{
+	return this->elts[numElts-1];
+}
 /*
 
 
