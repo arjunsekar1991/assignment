@@ -104,7 +104,7 @@ public:
 	size_type size() const;
 	const value_type& front() const;				// returns a reference to the first item in the sequence
 	const value_type& back() const;					// returns a reference to the last item in the sequence
-
+	bool empty() const;								// returns true if the sequence is empty
 	/*
 										
 

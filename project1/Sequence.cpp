@@ -95,6 +95,19 @@ const Sequence::value_type& Sequence::back() const
 {
 	return this->elts[numElts-1];
 }
+
+bool Sequence::empty() const
+{
+	if (numElts > 0) 
+	{
+	
+		return false; 
+	
+	}else{
+		
+	return true;
+	}
+}
 /*
 
 
@@ -105,17 +118,8 @@ void Sequence::insert(size_type position, value_type value)
 {
 }
 
-const Sequence::value_type& Sequence::front() const
-{
-}
 
-const Sequence::value_type& Sequence::back() const
-{
-}
 
-bool Sequence::empty() const
-{
-}
 
 
 

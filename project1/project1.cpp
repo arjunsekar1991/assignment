@@ -130,6 +130,20 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl;
 	}
+	try {
+
+		Sequence data(0);
+		
+		cout << "is sequence empty " << data.empty()<< endl;
+		data.push_back(100);
+		cout << "is sequence empty " << data.empty() << endl;
+
+		
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
 }
 
 void testCopyConstructor(Sequence s)
