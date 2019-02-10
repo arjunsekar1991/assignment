@@ -105,6 +105,7 @@ public:
 	const value_type& front() const;				// returns a reference to the first item in the sequence
 	const value_type& back() const;					// returns a reference to the last item in the sequence
 	bool empty() const;								// returns true if the sequence is empty
+	void clear();									// clears the sequence returning it to the empty state
 	/*
 										
 
@@ -114,8 +115,7 @@ public:
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 
 
-	bool empty() const;								// returns true if the sequence is empty
-	size_type size() const;
+
 
 	void clear();									// clears the sequence returning it to the empty state
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	

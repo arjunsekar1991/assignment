@@ -13,6 +13,7 @@ Sequence::Sequence(size_type sz)
 
 Sequence::~Sequence()
 {
+
 	delete[] elts;
 	
 }
@@ -108,6 +109,12 @@ bool Sequence::empty() const
 	return true;
 	}
 }
+
+void Sequence::clear()
+{
+	 elts=nullptr;
+	 numElts = 0;
+}
 /*
 
 
@@ -123,9 +130,7 @@ void Sequence::insert(size_type position, value_type value)
 
 
 
-void Sequence::clear()
-{
-}
+
 
 void Sequence::erase(size_type position, size_type count)
 {

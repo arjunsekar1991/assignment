@@ -144,6 +144,22 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl;
 	}
+
+	try {
+
+		Sequence data(1);
+		data[0] = 1;
+		cout << data[0];
+		data.clear();
+		cout << "hi";
+	//	cout << "is sequence clean " << data.empty() << endl;
+
+
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
 }
 
 void testCopyConstructor(Sequence s)
