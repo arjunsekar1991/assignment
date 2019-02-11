@@ -115,28 +115,34 @@ void Sequence::clear()
 	 elts=nullptr;
 	 numElts = 0;
 }
-/*
-
-
-
-
 
 void Sequence::insert(size_type position, value_type value)
 {
+	numElts++;
+	value_type * tempElts = new value_type[numElts + 1];
+
+
+	for (size_type i = 0; i < position; i++)
+		tempElts[i] = elts[i];
+
+	tempElts[position] = value;
+	size_type j = position;
+		for (size_type i = position + 1; i < numElts; i++)
+		{	tempElts[i] = elts[j];
+	j++;
 }
+		
 
-
-
-
-
-
-
+	
+	
+	 elts=nullptr;
+	elts = tempElts;
+}
+/*
 
 void Sequence::erase(size_type position, size_type count)
 {
 }
-
-
 
 */
 

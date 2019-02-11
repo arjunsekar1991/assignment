@@ -160,6 +160,21 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl;
 	}
+	try {
+
+		Sequence data(3);
+		data[0] = 1;
+		data[1] = 1;
+		data[2] = 1;
+		data.insert(1, 3);
+		cout << "data after insert" << data[1]<<endl;
+		cout << "data after insert" << data[0]<< "---------- " <<data[1]<< "----- "<<data[2]<<" ------------" <<data[3]<< endl;
+
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl;
+	}
 }
 
 void testCopyConstructor(Sequence s)

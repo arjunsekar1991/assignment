@@ -106,6 +106,7 @@ public:
 	const value_type& back() const;					// returns a reference to the last item in the sequence
 	bool empty() const;								// returns true if the sequence is empty
 	void clear();									// clears the sequence returning it to the empty state
+	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 	/*
 										
 
@@ -117,7 +118,7 @@ public:
 
 
 
-	void clear();									// clears the sequence returning it to the empty state
+	
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 
 	ostream& print(ostream& = cout);	*/			// prints the items as a comma seperated sequence
