@@ -1,22 +1,14 @@
-// project1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
-
-
-
 
 using namespace std;
 
 void testCopyConstructor(Sequence);
 
-int main()
-{
+int main(){
+	
 	try
 	{
-
-		
-			/* sequence copy test*/
+		/* sequence copy test*/
 			Sequence data(4);
 
 			data[0] = 100;
@@ -47,7 +39,6 @@ int main()
 		cout << "Exception: " << e.what() << endl;
 	}
 	try{
-		
 			Sequence data(4);
 			
 			data[0] = 100;
@@ -60,7 +51,7 @@ int main()
 	}
 	catch (exception& e)
 	{
-		cout << "Exception: " << e.what() << endl;
+			cout << "Exception: " << e.what() << endl;
 	}
 		//this looks like bounce check block 
 		{
@@ -80,68 +71,61 @@ int main()
 	}
 	catch (exception& e)
 	{
-		cout << "Exception: " << e.what() << endl;
+			cout << "Exception: " << e.what() << endl;
 	}
 		//at member function test method
-	try
-		{
+	try{
 			Sequence data(2);
 			data[0] = 100;
 			cout << "At method works ? " << data.at(0);
 			cout << "At method fails?" << data.at(2);
-		
 	}
 	catch (exception& e)
 	{
-		cout << "Exception: " << e.what() << endl;
+			cout << "Exception: " << e.what() << endl;
 	}
 
 	// pop back member function test method
 	try {
 
-		Sequence data(2);
-		data[0] = 100;
-		data[1] = 200;
-		data.pop_back();
-		cout << "popback function test" << endl;
-		cout << "value at index 0 is" << data[0] << endl;
-		cout << "end of popack test" << endl;
-		cout << "after pop size reduced from 2 to" << data.size()<<endl;
-		cout << "did i get invalid index " << data[1] << endl;
-
-
-
+			Sequence data(2);
+			data[0] = 100;
+			data[1] = 200;
+			data.pop_back();
+			cout << "popback function test" << endl;
+			cout << "value at index 0 is" << data[0] << endl;
+			cout << "end of popack test" << endl;
+			cout << "after pop size reduced from 2 to" << data.size()<<endl;
+			cout << "did i get invalid index " << data[1] << endl;
 	}
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl;
+	catch (exception& e){
+			cout << "Exception: " << e.what() << endl;
 	}
 
 
 	try {
 
-		Sequence data(2);
-		data[0] = 100;
-		data[1] = 200;
-		cout << "data in front" << data.front()<<endl;
-		cout << "data in back" << data.back() << endl;
+			Sequence data(2);
+			data[0] = 100;
+			data[1] = 200;
+			cout << "data in front" << data.front()<<endl;
+			cout << "data in back" << data.back() << endl;
 	}
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl;
+	catch (exception& e){
+			cout << "Exception: " << e.what() << endl;
 	}
+
 	try {
 
-		Sequence data(0);
+			Sequence data(0);
 		
-		cout << "is sequence empty " << data.empty()<< endl;
-		data.push_back(100);
-		cout << "is sequence empty " << data.empty() << endl;
+			cout << "is sequence empty " << data.empty()<< endl;
+			data.push_back(100);
+			cout << "is sequence empty " << data.empty() << endl;
 
-		
 	}
-	catch (exception& e)
-	{
+	catch (exception& e){
+
 		cout << "Exception: " << e.what() << endl;
 	}
 
@@ -154,13 +138,12 @@ int main()
 		cout << "hi";
 	//	cout << "is sequence clean " << data.empty() << endl;
 
-
 	}
-	catch (exception& e)
-	{
+	catch (exception& e){
 		cout << "Exception: " << e.what() << endl;
 	}
-	try {
+
+	try{
 
 		Sequence data(3);
 		data[0] = 1;
@@ -175,8 +158,7 @@ int main()
 		cout << "data after insert" << data[0] << "---------- " << data[1] << "----- " << data[2] << " ------------" << data[3] << " ------------" << data[4] << " ------------" << data[5] << endl;
 
 	}
-	catch (exception& e)
-	{
+	catch (exception& e){
 		cout << "Exception: " << e.what() << endl;
 	}
 }

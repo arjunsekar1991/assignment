@@ -107,17 +107,8 @@ public:
 	bool empty() const;								// returns true if the sequence is empty
 	void clear();									// clears the sequence returning it to the empty state
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
+	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 	/*
-										
-
-	
-	
-
-	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
-
-
-
-
 	
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 
