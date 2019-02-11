@@ -118,25 +118,56 @@ void Sequence::clear()
 
 void Sequence::insert(size_type position, value_type value)
 {
-	numElts++;
+	if (position >= 0 && position <numElts){
+		numElts++;
 	value_type * tempElts = new value_type[numElts + 1];
+	
+	
+	if (position > 0 && position < numElts - 1) {
+		cout << "inserting somewhere"<<endl;
+		for (size_type i = 0; i < position; i++)
+			tempElts[i] = elts[i];
 
-
-	for (size_type i = 0; i < position; i++)
-		tempElts[i] = elts[i];
-
-	tempElts[position] = value;
-	size_type j = position;
+		tempElts[position] = value;
+		size_type j = position;
 		for (size_type i = position + 1; i < numElts; i++)
-		{	tempElts[i] = elts[j];
-	j++;
-}
-		
+		{
+			tempElts[i] = elts[j];
+			j++;
+		}
+	}
+	if (position == 0) {
+		cout << "inserting head" << endl;
+		tempElts[0] = value;
+		size_type k = 0;
+		for (size_type i = 1; i < numElts; i++)
+		{
+			tempElts[i] = elts[k];
+			k++;
+		}
+	}
 
+	if (position == numElts-1) {
+		cout << "inserting tail" << endl;
+		
+		
+		for (size_type i = 0; i < numElts-3; i++)
+		{
+			tempElts[i] = elts[i];
+			
+		}
+		
+		tempElts[numElts-2]=elts[numElts-3];
+		tempElts[numElts - 1] = value;
+	}
 	
-	
-	 elts=nullptr;
+	delete [] elts;
 	elts = tempElts;
+	}
+	else {
+		throw exception("invalid sequence index");
+	}
+	
 }
 /*
 

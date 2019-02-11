@@ -169,6 +169,10 @@ int main()
 		data.insert(1, 3);
 		cout << "data after insert" << data[1]<<endl;
 		cout << "data after insert" << data[0]<< "---------- " <<data[1]<< "----- "<<data[2]<<" ------------" <<data[3]<< endl;
+		data.insert(0, 3);
+		cout << "data after insert" << data[0] << "---------- " << data[1] << "----- " << data[2] << " ------------" << data[3] << " ------------" << data[4] << endl;
+		data.insert(4, 3);
+		cout << "data after insert" << data[0] << "---------- " << data[1] << "----- " << data[2] << " ------------" << data[3] << " ------------" << data[4] << " ------------" << data[5] << endl;
 
 	}
 	catch (exception& e)
