@@ -110,7 +110,7 @@ public:
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 	/*
 	
-	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
+	
 
 	ostream& print(ostream& = cout);	*/			// prints the items as a comma seperated sequence
 	private:

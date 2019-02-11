@@ -112,7 +112,7 @@ void Sequence::insert(size_type position, value_type value)
 		value_type * tempElts = new value_type[numElts + 1];
 	
 		if (position > 0 && position < numElts - 1) {
-			cout << "inserting somewhere"<<endl;
+			
 			for (size_type i = 0; i < position; i++)
 			tempElts[i] = elts[i];
 
@@ -126,7 +126,7 @@ void Sequence::insert(size_type position, value_type value)
 		}
 
 	if (position == 0) {
-		cout << "inserting head" << endl;
+	
 		tempElts[0] = value;
 		size_type k = 0;
 
@@ -159,6 +159,23 @@ void Sequence::insert(size_type position, value_type value)
 
 void Sequence::erase(size_type position, size_type count)
 {
+	size_type last_index = numElts - 1;
+	if (position >= 0 && position + count - 1 <= last_index) {
+	value_type * tempElts = new value_type[numElts - count];
+
+	//	size_type lastElementIndex = numElts - 1;
+		for (size_type i = 0; i < position; i++) {
+		tempElts[i] = elts[i];
+		//cout << tempElts[i];
+		}
+		int j = position;
+		for (size_type i = position + count; i < numElts; i++) {
+			tempElts[j] = elts[i];
+		j++;
+		}
+	delete[] elts;
+	elts = tempElts;
+	}
 }
 
 

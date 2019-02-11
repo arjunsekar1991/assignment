@@ -161,6 +161,23 @@ int main(){
 	catch (exception& e){
 		cout << "Exception: " << e.what() << endl;
 	}
+
+	try {
+
+		Sequence data(6);
+		data[0] = 0;
+		data[1] = 1;
+		data[2] = 2;
+		data[3] = 3;
+		data[4] = 4;
+		data[5] = 5;
+		data.erase(2, 2);
+		cout << "data after erase" << data[0] << "---------- " << data[1] << "----- " << data[2] << " ------------" << data[3] << " ------------"  << endl;
+
+	}
+	catch (exception& e) {
+		cout << "Exception: " << e.what() << endl;
+	}
 }
 
 void testCopyConstructor(Sequence s)
