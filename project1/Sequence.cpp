@@ -1,12 +1,13 @@
 #include "pch.h"
 
-
+//may be this is correct
 Sequence::Sequence(size_type sz)
 {
 	numElts = sz;
-	for(int i=0;i<numElts;i++)
-	new SequenceNode();
-
+	for (int i = 0; i < numElts; i++) {
+	SequenceNode *s = new SequenceNode();
+	s->elt = 0;
+}
 }
 //test 2
 Sequence::Sequence(const Sequence& s)
