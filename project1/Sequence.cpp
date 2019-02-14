@@ -3,6 +3,9 @@
 
 Sequence::Sequence(size_type sz)
 {
+	numElts = sz;
+	for(int i=0;i<numElts;i++)
+	new SequenceNode();
 
 }
 //test 2
