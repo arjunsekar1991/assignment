@@ -5,7 +5,7 @@ Sequence::Sequence(size_type sz)
 {
 
 }
-
+//test
 Sequence::Sequence(const Sequence& s)
 {
 }
