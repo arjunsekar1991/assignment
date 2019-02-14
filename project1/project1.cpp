@@ -12,12 +12,12 @@ int main()
 		cout << "Testing sequence creation and printing" << endl;
 		cout << "--------------------------------------" << endl;
 		Sequence data(4);
-	//	data[0] = 100;
-	//	data[1] = 200;
-	//	data[2] = 300;
-	//	cout << "Sequence:  " << data << endl;
-	//	cout << "Should be: <100, 200, 300, ???>" << endl << endl;
-		cout << "hi";
+		data[0] = 100;
+		data[1] = 200;
+		data[2] = 300;
+		cout << "Sequence:  " << data << endl;
+		cout << "Should be: <100, 200, 300, ???>" << endl << endl;
+		
 	}
 
 	catch (exception& e)

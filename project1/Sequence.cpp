@@ -30,12 +30,20 @@ Sequence::Sequence(size_type sz)
 		tail = currentNode;
 
 	}
+ }
 }
+Sequence::value_type& Sequence::operator[](size_type position)
+{
+	SequenceNode *current = head;
+	for (size_type i = 0; i <= position; i++)
+		current = current->next;
+	return current->elt;
 }
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
 {
+
 }
 
 Sequence::~Sequence()
@@ -46,9 +54,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 {
 }
 
-Sequence::value_type& Sequence::operator[](size_type position)
-{
-}
+
 
 Sequence::value_type& Sequence::at(size_type position)
 {
@@ -90,11 +96,22 @@ void Sequence::erase(size_type position, size_type count)
 {
 }
 
-ostream& Sequence::print(ostream& os)
+
+*/
+ ostream& operator<<(ostream& os, Sequence& s)
 {
+	 for (Sequence::size_type i = 0; i < 3; i++)
+		 //need to intialize as undefined right now let it be 0
+	 {
+		 os << s[i];
+		 s.print(os);
+	 }
+	return os;
 }
 
+ ostream& Sequence::print(ostream& os)
+ {
+	 os << ",";
+	 return os;
+ }
 
-ostream& operator<<(ostream& os, Sequence& s)
-{
-}*/
