@@ -2,3 +2,7 @@
 *.db
 *.ipch
 *.opendb
+*.idb
+*.pdb
+*.lastbuildstate
+*.tlog
