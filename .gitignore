@@ -6,3 +6,7 @@
 *.pdb
 *.lastbuildstate
 *.tlog
+*.obj
+*.log
+*.ilk
+*.exe

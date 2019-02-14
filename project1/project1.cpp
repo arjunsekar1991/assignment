@@ -12,18 +12,19 @@ int main()
 		cout << "Testing sequence creation and printing" << endl;
 		cout << "--------------------------------------" << endl;
 		Sequence data(4);
-		data[0] = 100;
-		data[1] = 200;
-		data[2] = 300;
-		cout << "Sequence:  " << data << endl;
-		cout << "Should be: <100, 200, 300, ???>" << endl << endl;
+	//	data[0] = 100;
+	//	data[1] = 200;
+	//	data[2] = 300;
+	//	cout << "Sequence:  " << data << endl;
+	//	cout << "Should be: <100, 200, 300, ???>" << endl << endl;
+		cout << "hi";
 	}
 
 	catch (exception& e)
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-
+/*
 
 	// Test for independent sequences
 	try {
@@ -403,13 +404,13 @@ int main()
 	catch (exception& e)
 	{
 		cout << "Exception: " << e.what() << endl << endl;
-	}
+	}*/
 
 } // END OF MAIN
 
 
-void testCopyConstructor(Sequence s)
+/*void testCopyConstructor(Sequence s)
 {
 	s[0] = 1;
 	cout << "Copied Sequence:        " << s << endl;
-}
+}*/

@@ -4,12 +4,36 @@
 Sequence::Sequence(size_type sz)
 {
 	numElts = sz;
-	for (int i = 0; i < numElts; i++) {
-	SequenceNode *s = new SequenceNode();
-	s->elt = 0;
+	
+	for (size_type i = 0; i < numElts; i++) {
+	
+	if ( i == 0) {
+		SequenceNode *currentNode = new SequenceNode();
+		/*sN->prev = NULL;
+		sN->elt = 0;
+		sN->next= new SequenceNode();*/
+		
+		currentNode->prev = NULL;
+	//	currentNode->next = new SequenceNode(); 
+		currentNode->elt = 0;
+		head = currentNode;
+		tail = currentNode;
+		
+
+	}
+	
+	if( i>0 && i<numElts){
+		SequenceNode *currentNode = new SequenceNode();
+		currentNode->elt = 0;
+		currentNode->prev = tail;
+		tail->next = currentNode;
+		tail = currentNode;
+
+	}
 }
 }
 //test 2
+/*
 Sequence::Sequence(const Sequence& s)
 {
 }
@@ -73,4 +97,4 @@ ostream& Sequence::print(ostream& os)
 
 ostream& operator<<(ostream& os, Sequence& s)
 {
-}
+}*/

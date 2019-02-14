@@ -96,8 +96,8 @@ public:
 	typedef unsigned int size_type;					// data type of sequence counts and / or sizes
 
 	Sequence(size_type sz = 0);					// creates a sequence indexed from 0 ... sz
-
-	Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
+	/*
+	/Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
 	~Sequence();									// destroys the sequence
 
 	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
@@ -120,7 +120,7 @@ public:
 	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 
 	ostream& print(ostream& = cout);				// prints the items as a comma seperated sequence
-
+	*/
 // YOU CAN MODIFY the following private declarations as needed to implement your sequence class
 private:
 
@@ -157,6 +157,6 @@ private:
 };  // End of class Sequence
 
 // You must also implement the << operator.  Do not change this declaration:
-ostream& operator<<(ostream&, Sequence&);
+//ostream& operator<<(ostream&, Sequence&);
 
 #endif
