@@ -46,7 +46,6 @@ Sequence::value_type& Sequence::operator[](size_type position)
 }
 Sequence::~Sequence()
 {
-	cout << "destructor called";
 	SequenceNode *currentNode;
 	for (size_type i = 0; i < numElts; i++) {
 
