@@ -63,13 +63,13 @@ void Sequence::push_back(const value_type& value)
 {
 	SequenceNode *currentNode = new SequenceNode();
 	currentNode->elt = value;
-	cout << "tail value" << tail->elt<<endl;
-	/*if (head == NULL) {
+	//cout << "tail value" << tail->elt<<endl;
+	if (head == NULL) {
 		currentNode->prev = NULL;
-		head = currentNode;
+		head =tail= currentNode;
 		return;
 
-	}*/
+	}
 	tail->next =currentNode;
 	tail = currentNode;
 	currentNode->next = NULL;

@@ -65,7 +65,23 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	try {
+		cout << "Testing push_back() on an empty sequence" << endl;
+		cout << "-------------------" << endl;
+		Sequence data(0);
+		data.push_back(100);
+		data.push_back(200);
+		data.push_back(300);
+		data.push_back(400);
+		data.push_back(500);
+		cout << "Sequence:  " << data << endl;
+		cout << "Should be: <100, 200, 300, 400, 500>" << endl << endl;
+	}
 
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 	/*
 	// Test front()
 	try {
@@ -93,23 +109,7 @@ int main()
 
 	
 	// Test push_back to an empty sequence
-	try {
-		cout << "Testing push_back() on an empty sequence" << endl;
-		cout << "-------------------" << endl;
-		Sequence data(0);
-		data.push_back(100);
-		data.push_back(200);
-		data.push_back(300);
-		data.push_back(400);
-		data.push_back(500);
-		cout << "Sequence:  " << data << endl;
-		cout << "Should be: <100, 200, 300, 400, 500>" << endl << endl;
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
+	
 
 	// Test pop_back
 	try {
