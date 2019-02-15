@@ -86,7 +86,7 @@ void Sequence::pop_back()
 {
 	SequenceNode *currentNode ;
 	if (tail == NULL) {
-		throw exception("sequence is empty pop_back failed");
+		throw exception("sequence is empty pop_back failed :)");
 	}
 	currentNode = tail->prev;
 	delete tail;

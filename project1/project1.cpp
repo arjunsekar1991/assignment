@@ -102,6 +102,25 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	// Test pop_back on empty sequence
+	try {
+		cout << "Testing pop_back() on an empty sequence" << endl;
+		cout << "------------------" << endl;
+		Sequence data(3);
+		for (int i = 0; i < 3; i++) {
+			data[i] = (i + 1) * 100;
+		}
+		data.pop_back();
+		data.pop_back();
+		data.pop_back();
+		data.pop_back();
+		cout << "ERROR: Pop_back() DID NOT throw an exception" << endl << endl;
+
+	}
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
 	/*
 	// Test front()
 	try {
@@ -133,26 +152,9 @@ int main()
 
 	
 
-	// Test pop_back on empty sequence
-	try {
-		cout << "Testing pop_back() on an empty sequence" << endl;
-		cout << "------------------" << endl;
-		Sequence data(3);
-		for (int i = 0; i < 3; i++) {
-			data[i] = (i + 1) * 100;
-		}
-		data.pop_back();
-		data.pop_back();
-		data.pop_back();
-		data.pop_back();
-		cout << "ERROR: Pop_back() DID NOT throw an exception" << endl << endl;
+	
 
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
-	}
+	
 
 	// Test insert()
 	try {
