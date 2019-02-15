@@ -5,35 +5,38 @@ Sequence::Sequence(size_type sz)
 {
 
 	numElts = sz;
-	if(numElts>0){
-	for (size_type i = 0; i < numElts; i++) {
+	if(numElts>0)
+	{
+		for (size_type i = 0; i < numElts; i++) 
+		{
 	
-	if ( i == 0) {
-		SequenceNode *currentNode = new SequenceNode();
-		/*sN->prev = NULL;
-		sN->elt = 0;
-		sN->next= new SequenceNode();*/
+			if ( i == 0) {
+				SequenceNode *currentNode = new SequenceNode();
+				/*sN->prev = NULL;
+				sN->elt = 0;
+				sN->next= new SequenceNode();*/
 		
-		currentNode->prev = NULL;
-	//	currentNode->next = new SequenceNode(); 
-		currentNode->elt = 0;
-		head = currentNode;
-		tail = currentNode;
+				currentNode->prev = NULL;
+			//	currentNode->next = new SequenceNode(); 
+				currentNode->elt = 0;
+				head = currentNode;
+				tail = currentNode;
 		
 
-	}
+			}
 	
-	if( i>0 && i<numElts){
-		SequenceNode *currentNode = new SequenceNode();
-		currentNode->elt = 0;
-		currentNode->prev = tail;
-		tail->next = currentNode;
-		tail = currentNode;
+			if (i > 0 && i < numElts) {
+				SequenceNode *currentNode = new SequenceNode();
+				currentNode->elt = 0;
+				currentNode->prev = tail;
+				tail->next = currentNode;
+				tail = currentNode;
 
-	}
- }
+			}
+		}
 	}
 	else {
+		
 		head = tail = NULL;
 	}
 }
@@ -101,8 +104,8 @@ void Sequence::pop_back()
 }
 const Sequence::value_type& Sequence::front() const {
 
-	if (this->numElts==0) {
-		throw new exception("Invalid index :)");
+	if (numElts==0) {
+		throw exception("Invalid index :)");
 	}else{
 		return head->elt;
 	}
