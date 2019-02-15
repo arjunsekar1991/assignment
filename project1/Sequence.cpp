@@ -5,7 +5,7 @@ Sequence::Sequence(size_type sz)
 {
 
 	numElts = sz;
-	
+	if(numElts>0){
 	for (size_type i = 0; i < numElts; i++) {
 	
 	if ( i == 0) {
@@ -32,6 +32,10 @@ Sequence::Sequence(size_type sz)
 
 	}
  }
+	}
+	else {
+		head = tail = NULL;
+	}
 }
 Sequence::value_type& Sequence::operator[](size_type position)
 {
@@ -42,7 +46,7 @@ Sequence::value_type& Sequence::operator[](size_type position)
 }
 Sequence::~Sequence()
 {
-	
+	cout << "destructor called";
 	SequenceNode *currentNode;
 	for (size_type i = 0; i < numElts; i++) {
 
@@ -58,6 +62,8 @@ Sequence::~Sequence()
 	numElts = 0;
 		//delete Seq
 	head = tail = NULL;
+	delete head;
+	delete tail;
 }
 void Sequence::push_back(const value_type& value)
 {
@@ -94,6 +100,16 @@ void Sequence::pop_back()
 	numElts --;
 	
 }
+const Sequence::value_type& Sequence::front() const {
+
+	if (this->numElts==0) {
+		throw new exception("Invalid index :)");
+	}else{
+		return head->elt;
+	}
+	
+}
+
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
@@ -146,18 +162,20 @@ void Sequence::erase(size_type position, size_type count)
 
 
 */
- ostream& operator<<(ostream& os, Sequence& s)
+ostream& operator<<(ostream& os, Sequence& s)
 {
-	 Sequence::size_type j = s.sequenceSize()-1;
-	 for (Sequence::size_type i = 0; i < s.sequenceSize(); i++)
-		 //need to intialize as undefined right now let it be 0
-	 {
-		 os << s[i];
-		 if(j>0){
-		 s.print(os);
-		 j--;
-		 }
-	 }
+	if (s.sequenceSize() > 0) {
+	Sequence::size_type j = s.sequenceSize() - 1;
+	for (Sequence::size_type i = 0; i < s.sequenceSize(); i++)
+		//need to intialize as undefined right now let it be 0
+	{
+		os << s[i];
+		if (j > 0) {
+			s.print(os);
+			j--;
+		}
+	}
+}
 	return os;
 }
 

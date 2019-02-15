@@ -121,7 +121,6 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
-	/*
 	// Test front()
 	try {
 		cout << "Testing front()" << endl;
@@ -144,6 +143,24 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	
+	// Test front() on empty sequence
+	try {
+		cout << "Testing front() on an empty sequence" << endl;
+		cout << "------------------------------------" << endl;
+		Sequence data(0);
+		Sequence::size_type result = data.front();
+		cout << "ERROR: front() DID NOT throw an exception" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
+
+	/*
+	
 
 
 	
@@ -206,21 +223,7 @@ int main()
 
 
 
-	// Test front() on empty sequence
-	try {
-		cout << "Testing front() on an empty sequence" << endl;
-		cout << "------------------------------------" << endl;
-		Sequence data(0);
-		int result = data.front();
-		cout << "ERROR: front() DID NOT throw an exception" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
-	}
-
+	
 	// Test back()
 	try {
 		cout << "Testing back()" << endl;
