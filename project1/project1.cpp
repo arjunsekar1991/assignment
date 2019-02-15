@@ -24,7 +24,7 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-/*
+
 
 	// Test for independent sequences
 	try {
@@ -46,7 +46,7 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-
+	/*
 
 	// Test push_back
 	try {

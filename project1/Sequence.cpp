@@ -3,6 +3,7 @@
 //may be this is correct
 Sequence::Sequence(size_type sz)
 {
+
 	numElts = sz;
 	
 	for (size_type i = 0; i < numElts; i++) {
@@ -35,9 +36,28 @@ Sequence::Sequence(size_type sz)
 Sequence::value_type& Sequence::operator[](size_type position)
 {
 	SequenceNode *current = head;
-	for (size_type i = 0; i <= position; i++)
+	for (size_type i = 0; i < position; i++)
 		current = current->next;
 	return current->elt;
+}
+Sequence::~Sequence()
+{
+	
+	SequenceNode *currentNode;
+	for (size_type i = 0; i < numElts; i++) {
+
+		currentNode = head;
+		if (head->next != NULL) {
+			
+			head = head->next;
+			delete(currentNode);
+		}
+
+	}
+		
+	numElts = 0;
+		//delete Seq
+	head = tail = NULL;
 }
 //test 2
 /*
@@ -46,9 +66,7 @@ Sequence::Sequence(const Sequence& s)
 
 }
 
-Sequence::~Sequence()
-{
-}
+
 
 Sequence& Sequence::operator=(const Sequence& s)
 {

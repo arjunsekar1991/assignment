@@ -98,9 +98,11 @@ public:
 	Sequence(size_type sz = 0);					// creates a sequence indexed from 0 ... sz
 	value_type& operator[](size_type p);			// return a reference to the item at index position p
 	ostream& print(ostream& = cout);				// prints the items as a comma seperated sequence
-	/*
-	/Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
 	~Sequence();									// destroys the sequence
+	//Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
+	/*
+	/
+	
 
 	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
 
