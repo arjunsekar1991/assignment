@@ -101,7 +101,7 @@ public:
 	~Sequence();									// destroys the sequence
 	//const value_type& front() const;				// returns a reference to the first item in the sequence
 	void push_back(const value_type& v);			// add v to the end of the sequence
-	//size_type size();
+	size_type sequenceSize();
 	//Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
 	/*
 	/

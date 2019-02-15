@@ -8,7 +8,7 @@ int main()
 {
 
 	// Create a sequence of length four, store some values, and print
-	/*try {
+	try {
 		cout << "Testing sequence creation and printing" << endl;
 		cout << "--------------------------------------" << endl;
 		Sequence data(4);
@@ -45,7 +45,7 @@ int main()
 	catch (exception& e)
 	{
 		cout << "Exception: " << e.what() << endl << endl;
-	}*/
+	}
 
 	// Test push_back
 	try {

@@ -63,6 +63,7 @@ void Sequence::push_back(const value_type& value)
 {
 	SequenceNode *currentNode = new SequenceNode();
 	currentNode->elt = value;
+	numElts++;
 	//cout << "tail value" << tail->elt<<endl;
 	if (head == NULL) {
 		currentNode->prev = NULL;
@@ -73,6 +74,11 @@ void Sequence::push_back(const value_type& value)
 	tail->next =currentNode;
 	tail = currentNode;
 	currentNode->next = NULL;
+}
+
+Sequence::size_type Sequence::sequenceSize() {
+
+	return numElts;
 }
 
 //test 2
@@ -131,7 +137,7 @@ void Sequence::erase(size_type position, size_type count)
 */
  ostream& operator<<(ostream& os, Sequence& s)
 {
-	 for (Sequence::size_type i = 0; i < 5; i++)
+	 for (Sequence::size_type i = 0; i < s.sequenceSize(); i++)
 		 //need to intialize as undefined right now let it be 0
 	 {
 		 os << s[i];
