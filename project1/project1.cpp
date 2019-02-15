@@ -8,7 +8,7 @@ int main()
 {
 
 	// Create a sequence of length four, store some values, and print
-	try {
+	/*try {
 		cout << "Testing sequence creation and printing" << endl;
 		cout << "--------------------------------------" << endl;
 		Sequence data(4);
@@ -45,8 +45,7 @@ int main()
 	catch (exception& e)
 	{
 		cout << "Exception: " << e.what() << endl << endl;
-	}
-	/*
+	}*/
 
 	// Test push_back
 	try {
@@ -67,6 +66,32 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
+	/*
+	// Test front()
+	try {
+		cout << "Testing front()" << endl;
+		cout << "---------------" << endl;
+
+		Sequence data(3);
+
+		for (int i = 0; i < 3; i++) {
+			data[i] = (i + 1) * 100;
+		}
+
+		cout << "Front:     " << data.front() << endl;
+		cout << "Sequence:  " << data << endl;
+		cout << "Should be: 100" << endl;
+		cout << "           <100, 200, 300>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+
+	
 	// Test push_back to an empty sequence
 	try {
 		cout << "Testing push_back() on an empty sequence" << endl;
@@ -175,28 +200,7 @@ int main()
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
 
-	// Test front()
-	try {
-		cout << "Testing front()" << endl;
-		cout << "---------------" << endl;
 
-		Sequence data(3);
-
-		for (int i = 0; i < 3; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		cout << "Front:     " << data.front() << endl;
-		cout << "Sequence:  " << data << endl;
-		cout << "Should be: 100" << endl;
-		cout << "           <100, 200, 300>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
 
 	// Test front() on empty sequence
 	try {

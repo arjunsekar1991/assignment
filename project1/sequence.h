@@ -99,6 +99,9 @@ public:
 	value_type& operator[](size_type p);			// return a reference to the item at index position p
 	ostream& print(ostream& = cout);				// prints the items as a comma seperated sequence
 	~Sequence();									// destroys the sequence
+	//const value_type& front() const;				// returns a reference to the first item in the sequence
+	void push_back(const value_type& v);			// add v to the end of the sequence
+	//size_type size();
 	//Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
 	/*
 	/
@@ -109,12 +112,12 @@ public:
 	
 	value_type& at(size_type p);					// return a reference to the item at index position p
 
-	void push_back(const value_type& v);			// add v to the end of the sequence
+	
 	void pop_back();								// remove item at the end of the sequence
 
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 
-	const value_type& front() const;				// returns a reference to the first item in the sequence
+	
 	const value_type& back() const;					// returns a reference to the last item in the sequence
 
 	bool empty() const;								// returns true if the sequence is empty

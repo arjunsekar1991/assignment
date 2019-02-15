@@ -59,12 +59,29 @@ Sequence::~Sequence()
 		//delete Seq
 	head = tail = NULL;
 }
+void Sequence::push_back(const value_type& value)
+{
+	SequenceNode *currentNode = new SequenceNode();
+	currentNode->elt = value;
+	cout << "tail value" << tail->elt<<endl;
+	/*if (head == NULL) {
+		currentNode->prev = NULL;
+		head = currentNode;
+		return;
+
+	}*/
+	tail->next =currentNode;
+	tail = currentNode;
+	currentNode->next = NULL;
+}
+
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
 {
 
 }
+
 
 
 
@@ -78,9 +95,7 @@ Sequence::value_type& Sequence::at(size_type position)
 {
 }
 
-void Sequence::push_back(const value_type& value)
-{
-}
+
 
 void Sequence::pop_back()
 {
@@ -90,9 +105,7 @@ void Sequence::insert(size_type position, value_type value)
 {
 }
 
-const Sequence::value_type& Sequence::front() const
-{
-}
+
 
 const Sequence::value_type& Sequence::back() const
 {
@@ -118,7 +131,7 @@ void Sequence::erase(size_type position, size_type count)
 */
  ostream& operator<<(ostream& os, Sequence& s)
 {
-	 for (Sequence::size_type i = 0; i < 3; i++)
+	 for (Sequence::size_type i = 0; i < 5; i++)
 		 //need to intialize as undefined right now let it be 0
 	 {
 		 os << s[i];
