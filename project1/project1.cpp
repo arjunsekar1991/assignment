@@ -82,6 +82,26 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
+	// Test pop_back
+	try {
+		cout << "Testing pop_back()" << endl;
+		cout << "------------------" << endl;
+		Sequence data(5);
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
+		data.pop_back();
+		data.pop_back();
+		cout << "Sequence:   " << data << endl;
+		cout << "Should be:  <100, 200, 300>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 	/*
 	// Test front()
 	try {
@@ -111,25 +131,7 @@ int main()
 	// Test push_back to an empty sequence
 	
 
-	// Test pop_back
-	try {
-		cout << "Testing pop_back()" << endl;
-		cout << "------------------" << endl;
-		Sequence data(5);
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-		data.pop_back();
-		data.pop_back();
-		cout << "Sequence:   " << data << endl;
-		cout << "Should be:  <100, 200, 300>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
+	
 
 	// Test pop_back on empty sequence
 	try {

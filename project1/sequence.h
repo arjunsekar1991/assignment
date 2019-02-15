@@ -103,6 +103,8 @@ public:
 	void push_back(const value_type& v);			// add v to the end of the sequence
 	size_type sequenceSize();
 	//Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
+	void pop_back();								// remove item at the end of the sequence
+
 	/*
 	/
 	
@@ -113,8 +115,7 @@ public:
 	value_type& at(size_type p);					// return a reference to the item at index position p
 
 	
-	void pop_back();								// remove item at the end of the sequence
-
+	
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 
 	
