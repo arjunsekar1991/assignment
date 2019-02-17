@@ -224,26 +224,27 @@ void Sequence::insert(size_type position, value_type value)
 		this->head = tempNode;
 		numElts++;
 	}
-	if (position == numElts - 1) {
-		this->push_back(value);
-	}
 	if (position > 0 && position < numElts - 1) {
 		SequenceNode *current = head;
 		SequenceNode *currentPlusOne;
 		SequenceNode *tempNode = new SequenceNode();
-		for (size_type i = 0; i <position-1; i++) {
+		for (size_type i = 0; i < position - 1; i++) {
 			current = current->next;
 		}
 		currentPlusOne = current->next;
 		tempNode->elt = value;
 		current->next = tempNode;
-		
+
 		tempNode->next = currentPlusOne;
-		tempNode->prev =current;
+		tempNode->prev = current;
 		tempNode->prev = current->next;
 		numElts++;
 
 	}
+	if (position == numElts - 1) {
+		this->push_back(value);
+	}
+	
 
 }
 /*
