@@ -237,11 +237,58 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	// Test size()
+	try {
+		cout << "Testing size()" << endl;
+		cout << "---------------" << endl;
+
+		Sequence data(7);
+		Sequence empty_sequence(0);
+
+		cout << "Sequence length 7, size returned: " << data.size() << endl;
+		cout << "Empty sequence, size returned: " << empty_sequence.size() << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+
+
+	
 
 	/*
 	
 
+	// Test assignment (=) operator
+	try {
+		cout << "Testing assignment (=) operator" << endl;
+		cout << "------------------" << endl;
+		Sequence data1(5);
+		Sequence data2(0);
 
+		for (int i = 0; i < 5; i++) {
+			data1[i] = (i + 1) * 100;
+		}
+
+		data2 = data1;
+
+		data2[0] = 1;
+		data2[1] = 2;
+
+		cout << "Data1:      " << data1 << endl;
+		cout << "Data2:      " << data2 << endl;
+		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
+		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 	
 	// Test push_back to an empty sequence
 	
@@ -307,23 +354,6 @@ int main()
 
 	
 
-	// Test size()
-	try {
-		cout << "Testing size()" << endl;
-		cout << "---------------" << endl;
-
-		Sequence data(7);
-		Sequence empty_sequence(0);
-
-		cout << "Sequence length 7, size returned: " << data.size() << endl;
-		cout << "Empty sequence, size returned: " << empty_sequence.size() << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
 
 
 	// Test erase
@@ -371,33 +401,6 @@ int main()
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
 
-	// Test assignment (=) operator
-	try {
-		cout << "Testing assignment (=) operator" << endl;
-		cout << "------------------" << endl;
-		Sequence data1(5);
-		Sequence data2(0);
-
-		for (int i = 0; i < 5; i++) {
-			data1[i] = (i + 1) * 100;
-		}
-
-		data2 = data1;
-
-		data2[0] = 1;
-		data2[1] = 2;
-
-		cout << "Data1:      " << data1 << endl;
-		cout << "Data2:      " << data2 << endl;
-		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
-		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
 
 	// Test copy constructor
 	try {

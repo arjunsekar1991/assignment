@@ -150,53 +150,30 @@ void Sequence::clear()
 
 //test 2
 /*
+
 Sequence::Sequence(const Sequence& s)
 {
 
 }
-
-
-
-
 Sequence& Sequence::operator=(const Sequence& s)
 {
 }
-
-
-
-Sequence::value_type& Sequence::at(size_type position)
-{
-}
-
-
-
 
 
 void Sequence::insert(size_type position, value_type value)
 {
 }
 
-
-
-
-
-
-
-
-
-
 void Sequence::erase(size_type position, size_type count)
 {
 }
-
-
 */
 ostream& operator<<(ostream& os, Sequence& s)
 {
 	if (s.size() > 0) {
 	Sequence::size_type j = s.size() - 1;
 	for (Sequence::size_type i = 0; i < s.size(); i++)
-		//need to intialize as undefined right now let it be 0
+		
 	{
 		os << s[i];
 		if (j > 0) {
