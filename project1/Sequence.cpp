@@ -112,6 +112,16 @@ const Sequence::value_type& Sequence::front() const {
 	
 }
 
+const Sequence::value_type& Sequence::back() const
+{
+	if (numElts == 0) {
+		throw exception("Invalid index :)");
+	}
+	else {
+		return tail->elt;
+	}
+}
+
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
@@ -142,9 +152,7 @@ void Sequence::insert(size_type position, value_type value)
 
 
 
-const Sequence::value_type& Sequence::back() const
-{
-}
+
 
 bool Sequence::empty() const
 {

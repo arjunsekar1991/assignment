@@ -158,7 +158,43 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
+	// Test back()
+	try {
+		cout << "Testing back()" << endl;
+		cout << "---------------" << endl;
 
+		Sequence data(3);
+
+		for (int i = 0; i < 3; i++) {
+			data[i] = (i + 1) * 100;
+		}
+
+		cout << "Back:      " << data.back() << endl;
+		cout << "Sequence:  " << data << endl;
+		cout << "Should be: 300" << endl;
+		cout << "           <100, 200, 300>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+	// Test back() on empty sequence
+	try {
+		cout << "Testing back() on an empty sequence" << endl;
+		cout << "------------------------------------" << endl;
+		Sequence data(0);
+		int result = data.back();
+		cout << "ERROR: back() DID NOT throw an exception" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
 	/*
 	
 
@@ -224,43 +260,7 @@ int main()
 
 
 	
-	// Test back()
-	try {
-		cout << "Testing back()" << endl;
-		cout << "---------------" << endl;
-
-		Sequence data(3);
-
-		for (int i = 0; i < 3; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		cout << "Back:      " << data.back() << endl;
-		cout << "Sequence:  " << data << endl;
-		cout << "Should be: 300" << endl;
-		cout << "           <100, 200, 300>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-
-	// Test back() on empty sequence
-	try {
-		cout << "Testing back() on an empty sequence" << endl;
-		cout << "------------------------------------" << endl;
-		Sequence data(0);
-		int result = data.back();
-		cout << "ERROR: back() DID NOT throw an exception" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
-	}
+	
 
 	// Test empty()
 	try {

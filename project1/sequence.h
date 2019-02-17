@@ -105,6 +105,7 @@ public:
 	//Sequence(const Sequence& s);					// create a sequence from the existing sequence s 
 	void pop_back();								// remove item at the end of the sequence
 	const value_type& front() const;				// returns a reference to the first item in the sequence
+	const value_type& back() const;					// returns a reference to the last item in the sequence
 	/*
 	/
 	
@@ -119,7 +120,7 @@ public:
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 
 	
-	const value_type& back() const;					// returns a reference to the last item in the sequence
+	
 
 	bool empty() const;								// returns true if the sequence is empty
 	size_type size() const;
