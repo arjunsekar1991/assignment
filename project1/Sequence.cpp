@@ -121,7 +121,15 @@ const Sequence::value_type& Sequence::back() const
 		return tail->elt;
 	}
 }
-
+bool Sequence::empty() const
+{
+	if (numElts > 0) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
@@ -154,9 +162,7 @@ void Sequence::insert(size_type position, value_type value)
 
 
 
-bool Sequence::empty() const
-{
-}
+
 
 Sequence::size_type Sequence::size() const
 {

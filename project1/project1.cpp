@@ -195,6 +195,25 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
+
+
+	// Test empty()
+	try {
+		cout << "Testing empty()" << endl;
+		cout << "---------------" << endl;
+
+		Sequence empty_sequence(0);
+		Sequence nonempty_sequence(1);
+
+		cout << "Empty sequence, empty returns: " << empty_sequence.empty() << endl;
+		cout << "Non-empty sequence, empty returns: " << nonempty_sequence.empty() << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 	/*
 	
 
@@ -262,23 +281,7 @@ int main()
 	
 	
 
-	// Test empty()
-	try {
-		cout << "Testing empty()" << endl;
-		cout << "---------------" << endl;
-
-		Sequence empty_sequence(0);
-		Sequence nonempty_sequence(1);
-
-		cout << "Empty sequence, empty returns: " << empty_sequence.empty() << endl;
-		cout << "Non-empty sequence, empty returns: " << nonempty_sequence.empty() << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
+	
 
 	// Test size()
 	try {
