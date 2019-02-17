@@ -214,6 +214,30 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
+	// Test clear()
+	try {
+		cout << "Testing clear()" << endl;
+		cout << "---------------" << endl;
+
+		Sequence data(5);
+
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
+
+		data.clear();
+		cout << "Sequence cleared, empty returned: " << data.empty() << endl;
+		cout << "Size returned:  " << data.size() << endl << endl;
+	}
+
+
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
 	/*
 	
 
@@ -301,28 +325,6 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
-	// Test clear()
-	try {
-		cout << "Testing clear()" << endl;
-		cout << "---------------" << endl;
-
-		Sequence data(5);
-
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		data.clear();
-		cout << "Sequence cleared, empty returned: " << data.empty() << endl;
-		cout << "Size returned:  " << data.size() << endl << endl;
-	}
-
-
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
 
 	// Test erase
 	try {

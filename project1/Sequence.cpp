@@ -84,10 +84,6 @@ void Sequence::push_back(const value_type& value)
 	currentNode->next = NULL;
 }
 
-Sequence::size_type Sequence::sequenceSize() {
-
-	return numElts;
-}
 
 
 void Sequence::pop_back()
@@ -130,6 +126,28 @@ bool Sequence::empty() const
 		return true;
 	}
 }
+
+Sequence::size_type Sequence::size() const
+{
+	return numElts;
+}
+
+void Sequence::clear()
+{
+
+	cout << "clear function "<<numElts;
+	SequenceNode *currentNode = head;
+	for (size_type i = 0; i < numElts; i++) {
+		cout << "clear function " << numElts<<endl;
+
+			head = head->next;
+			 currentNode= nullptr ;
+			currentNode=head;
+	}
+	numElts = 0;
+	head = tail = nullptr;
+}
+
 //test 2
 /*
 Sequence::Sequence(const Sequence& s)
@@ -164,13 +182,8 @@ void Sequence::insert(size_type position, value_type value)
 
 
 
-Sequence::size_type Sequence::size() const
-{
-}
 
-void Sequence::clear()
-{
-}
+
 
 void Sequence::erase(size_type position, size_type count)
 {
@@ -180,9 +193,9 @@ void Sequence::erase(size_type position, size_type count)
 */
 ostream& operator<<(ostream& os, Sequence& s)
 {
-	if (s.sequenceSize() > 0) {
-	Sequence::size_type j = s.sequenceSize() - 1;
-	for (Sequence::size_type i = 0; i < s.sequenceSize(); i++)
+	if (s.size() > 0) {
+	Sequence::size_type j = s.size() - 1;
+	for (Sequence::size_type i = 0; i < s.size(); i++)
 		//need to intialize as undefined right now let it be 0
 	{
 		os << s[i];
