@@ -147,17 +147,46 @@ void Sequence::clear()
 	numElts = 0;
 	head = tail = nullptr;
 }
-
-//test 2
 /*
+Sequence& Sequence::operator=(const Sequence& s)
+{
+
+}*/
 
 Sequence::Sequence(const Sequence& s)
 {
+	this->numElts = s.numElts;
+	SequenceNode *currentNode = new SequenceNode();
+
+	for (size_type i = 0; i < s.numElts; i++)
+	{
+
+		if (i == 0) {
+			SequenceNode *tempNode = new SequenceNode();
+			currentNode = s.head;
+			tempNode->prev = NULL;
+			tempNode->elt = currentNode->elt;
+			this->head = tempNode;
+			this->tail = this->head;
+		}
+
+		if (i > 0 && i < numElts) {
+			SequenceNode *tempNode = new SequenceNode();
+			currentNode = currentNode->next;
+			tempNode->elt = currentNode->elt;
+			tempNode->prev = this->tail;
+				this->tail->next = tempNode;
+				this->tail = tempNode;
+
+		}
+	}
+
 
 }
-Sequence& Sequence::operator=(const Sequence& s)
-{
-}
+//test 2
+/*
+
+
 
 
 void Sequence::insert(size_type position, value_type value)

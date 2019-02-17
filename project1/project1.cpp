@@ -256,12 +256,7 @@ int main()
 	}
 
 
-
-	
-
 	/*
-	
-
 	// Test assignment (=) operator
 	try {
 		cout << "Testing assignment (=) operator" << endl;
@@ -289,6 +284,35 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	*/
+
+	// Test copy constructor
+	try {
+		cout << "Testing copy constructor" << endl;
+		cout << "------------------" << endl;
+		Sequence data(5);
+
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
+
+		testCopyConstructor(data);
+
+		cout << "Original Sequence:      " << data << endl;
+		cout << "Should be:              <1, 200, 300, 400, 500>" << endl;
+		cout << "                        <100, 200, 300, 400, 500>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+	/*
+	
+
+	
 	
 	// Test push_back to an empty sequence
 	
@@ -402,34 +426,13 @@ int main()
 	}
 
 
-	// Test copy constructor
-	try {
-		cout << "Testing copy constructor" << endl;
-		cout << "------------------" << endl;
-		Sequence data(5);
-
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		testCopyConstructor(data);
-
-		cout << "Original Sequence:      " << data << endl;
-		cout << "Should be:              <1, 200, 300, 400, 500>" << endl;
-		cout << "                        <100, 200, 300, 400, 500>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}*/
+	*/
 
 } // END OF MAIN
 
 
-/*void testCopyConstructor(Sequence s)
+void testCopyConstructor(Sequence s)
 {
 	s[0] = 1;
 	cout << "Copied Sequence:        " << s << endl;
-}*/
+}
