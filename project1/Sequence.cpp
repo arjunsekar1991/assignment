@@ -212,6 +212,9 @@ Sequence::Sequence(const Sequence& s)
 }
 void Sequence::insert(size_type position, value_type value)
 {
+	if (position > numElts - 1) {
+		throw exception("Invalid Index");
+}
 	if (position == 0) {
 		SequenceNode *tempNode = new SequenceNode();
 		
@@ -241,7 +244,13 @@ void Sequence::insert(size_type position, value_type value)
 		numElts++;
 
 	}
+
 }
+/*
+void Sequence::erase(size_type position, size_type count)
+{
+
+}*/
 //test 2
 /*
 
@@ -250,9 +259,7 @@ void Sequence::insert(size_type position, value_type value)
 
 
 
-void Sequence::erase(size_type position, size_type count)
-{
-}
+
 */
 ostream& operator<<(ostream& os, Sequence& s)
 {

@@ -342,6 +342,24 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
+	// Test insert on invalid index
+	try {
+		cout << "Testing insert() on an invalid index" << endl;
+		cout << "------------------" << endl;
+		Sequence data(3);
+		for (int i = 0; i < 3; i++) {
+			data[i] = (i + 1) * 100;
+		}
+		data.insert(5, 555);
+		cout << "ERROR: Insert DID NOT throw an exception" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
 	/*
 	
 
@@ -357,23 +375,6 @@ int main()
 	
 
 
-	// Test insert on invalid index
-	try {
-		cout << "Testing insert() on an invalid index" << endl;
-		cout << "------------------" << endl;
-		Sequence data(3);
-		for (int i = 0; i < 3; i++) {
-			data[i] = (i + 1) * 100;
-		}
-		data.insert(5, 555);
-		cout << "ERROR: Pop_back() DID NOT throw an exception" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
-	}
 
 
 
