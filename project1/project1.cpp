@@ -256,35 +256,10 @@ int main()
 	}
 
 
-	/*
-	// Test assignment (=) operator
-	try {
-		cout << "Testing assignment (=) operator" << endl;
-		cout << "------------------" << endl;
-		Sequence data1(5);
-		Sequence data2(0);
+	
 
-		for (int i = 0; i < 5; i++) {
-			data1[i] = (i + 1) * 100;
-		}
 
-		data2 = data1;
-
-		data2[0] = 1;
-		data2[1] = 2;
-
-		cout << "Data1:      " << data1 << endl;
-		cout << "Data2:      " << data2 << endl;
-		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
-		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-	*/
+	
 
 	// Test copy constructor
 	try {
@@ -309,19 +284,34 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
-	/*
-	
 
-	
-	
-	// Test push_back to an empty sequence
-	
+	// Test assignment (=) operator
+	try {
+		cout << "Testing assignment (=) operator" << endl;
+		cout << "------------------" << endl;
+		Sequence data1(5);
+		Sequence data2(0);
 
-	
+		for (int i = 0; i < 5; i++) {
+			data1[i] = (i + 1) * 100;
+		}
 
-	
+		data2 = data1;
 
-	
+		data2[0] = 1;
+		data2[1] = 2;
+
+		cout << "Data1:      " << data1 << endl;
+		cout << "Data2:      " << data2 << endl;
+		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
+		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
+
+	}
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
 
 	// Test insert()
 	try {
@@ -343,7 +333,7 @@ int main()
 		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500>" << endl << endl;
 
 		data.insert(6, 777);
-		cout << "Sequence:   " << data << endl;
+	    cout << "Sequence:   " << data << endl;
 		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500, 777>" << endl << endl;
 
 	}
@@ -352,6 +342,20 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	/*
+	
+
+	
+	
+	// Test push_back to an empty sequence
+	
+
+	
+
+	
+
+	
+
 
 	// Test insert on invalid index
 	try {

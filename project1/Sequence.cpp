@@ -147,11 +147,38 @@ void Sequence::clear()
 	numElts = 0;
 	head = tail = nullptr;
 }
-/*
 Sequence& Sequence::operator=(const Sequence& s)
 {
+	if (this != &s) {
+		this->numElts = s.numElts;
+		SequenceNode *currentNode = new SequenceNode();
 
-}*/
+		for (size_type i = 0; i < s.numElts; i++)
+		{
+
+			if (i == 0) {
+				SequenceNode *tempNode = new SequenceNode();
+				currentNode = s.head;
+				tempNode->prev = NULL;
+				tempNode->elt = currentNode->elt;
+				this->head = tempNode;
+				this->tail = this->head;
+			}
+
+			if (i > 0 && i < numElts) {
+				SequenceNode *tempNode = new SequenceNode();
+				currentNode = currentNode->next;
+				tempNode->elt = currentNode->elt;
+				tempNode->prev = this->tail;
+				this->tail->next = tempNode;
+				this->tail = tempNode;
+
+			}
+		}
+	}
+
+	return *this;
+}
 
 Sequence::Sequence(const Sequence& s)
 {
@@ -183,15 +210,45 @@ Sequence::Sequence(const Sequence& s)
 
 
 }
+void Sequence::insert(size_type position, value_type value)
+{
+	if (position == 0) {
+		SequenceNode *tempNode = new SequenceNode();
+		
+		tempNode->prev = NULL;
+		tempNode->elt = value;
+		tempNode->next = head;
+		this->head = tempNode;
+		numElts++;
+	}
+	if (position == numElts - 1) {
+		this->push_back(value);
+	}
+	if (position > 0 && position < numElts - 1) {
+		SequenceNode *current = head;
+		SequenceNode *currentPlusOne;
+		SequenceNode *tempNode = new SequenceNode();
+		for (size_type i = 0; i <position-1; i++) {
+			current = current->next;
+		}
+		currentPlusOne = current->next;
+		tempNode->elt = value;
+		current->next = tempNode;
+		
+		tempNode->next = currentPlusOne;
+		tempNode->prev =current;
+		tempNode->prev = current->next;
+		numElts++;
+
+	}
+}
 //test 2
 /*
 
 
 
 
-void Sequence::insert(size_type position, value_type value)
-{
-}
+
 
 void Sequence::erase(size_type position, size_type count)
 {

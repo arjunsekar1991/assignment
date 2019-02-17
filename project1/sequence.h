@@ -108,19 +108,21 @@ public:
 	bool empty() const;								// returns true if the sequence is empty
 	size_type size() const;
 	void clear();									// clears the sequence returning it to the empty state
+	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
+
+	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
+
 	/*
 	/
 	
 
-	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
+	
 
 	
 	value_type& at(size_type p);					// return a reference to the item at index position p
 
 	
 	
-	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
-
 	
 	
 
