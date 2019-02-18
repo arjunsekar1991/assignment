@@ -258,7 +258,9 @@ void Sequence::insert(size_type position, value_type value)
 
 void Sequence::erase(size_type position, size_type count)
 {
-
+	if (position > numElts - 1 || numElts < count+position) {
+		throw exception("Invalid index");
+	}
 
 	SequenceNode *deleteNodes = head;
 	SequenceNode *deleteNodesbefore = head;
@@ -269,15 +271,14 @@ void Sequence::erase(size_type position, size_type count)
 		
 		if (i < position-1) {
 			
-			cout << "delete before " << deleteNodesbefore->elt<<endl;
+			//cout << "delete before " << deleteNodesbefore->elt<<endl;
 			deleteNodesbefore = deleteNodesbefore->next;
 			//subsequence increment
 			deleteNodesAfter = deleteNodesAfter->next;
 			deleteNodes = deleteNodes->next;
 		}
-		
 if (i > position - 1 && i< position + count+1){
-			cout << "Delete  nodes" << deleteNodes->elt << endl;
+			//cout << "Delete  nodes" << deleteNodes->elt << endl;
 			deleteNodes = deleteNodes->next;
 			//subsequenct increment
 			deleteNodesAfter = deleteNodesAfter->next;
@@ -285,7 +286,7 @@ if (i > position - 1 && i< position + count+1){
 }
 		if (i >= position + count)
 		{
-			cout << "Delete after nodes" << deleteNodesAfter->elt << endl;
+			//cout << "Delete after nodes" << deleteNodesAfter->elt << endl;
 			if (gapSize >=0) {
 				//deleteNodesbefore->next = NULL;
 				deleteNodesbefore->next = deleteNodesAfter;
