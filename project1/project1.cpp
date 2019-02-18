@@ -360,30 +360,6 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
-	/*
-	
-
-	
-	
-	// Test push_back to an empty sequence
-	
-
-	
-
-	
-
-	
-
-
-
-
-
-	
-	
-
-	
-
-
 
 	// Test erase
 	try {
@@ -411,6 +387,32 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+	/*
+	
+
+	
+	
+	// Test push_back to an empty sequence
+	
+
+	
+
+	
+
+	
+
+
+
+
+
+	
+	
+
+	
+
+
+
+
 
 	// Test erase with invalid parameters
 	try {

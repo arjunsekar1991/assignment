@@ -109,7 +109,7 @@ public:
 	size_type size() const;
 	void clear();									// clears the sequence returning it to the empty state
 	Sequence& operator=(const Sequence& s);		// assign sequence s to the sequence
-
+	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
 	void insert(size_type p, value_type v);		// insert the item v in the sequence at index position p
 
 	/*
@@ -130,7 +130,7 @@ public:
 	
 
 	
-	void erase(size_type p, size_type n = 1);	// deletes n number items starting a index position p 	
+	
 
 	
 	*/
