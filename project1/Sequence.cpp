@@ -258,24 +258,48 @@ void Sequence::insert(size_type position, value_type value)
 
 void Sequence::erase(size_type position, size_type count)
 {
-	SequenceNode *currentFirstHalf = head;
-	for (size_type i = 0; i < position; i++) 
-	{
-		cout << "First half" <<currentFirstHalf->elt << endl;
-		currentFirstHalf = currentFirstHalf->next;
 
-	}
 
 	SequenceNode *deleteNodes = head;
-	for (size_type i = 0; i < position + count; i++) {
-		if (i > position - 1)
+	SequenceNode *deleteNodesbefore = head;
+	SequenceNode *deleteNodesAfter = head;
+	
+	int gapSize = 0;
+	for (size_type i = 0; i < numElts; i++) {
+		
+		if (i < position-1) {
+			
+			cout << "delete before " << deleteNodesbefore->elt<<endl;
+			deleteNodesbefore = deleteNodesbefore->next;
+			//subsequence increment
+			deleteNodesAfter = deleteNodesAfter->next;
+			deleteNodes = deleteNodes->next;
+		}
+		
+if (i > position - 1 && i< position + count+1){
 			cout << "Delete  nodes" << deleteNodes->elt << endl;
-		deleteNodes = deleteNodes->next;
-
-
+			deleteNodes = deleteNodes->next;
+			//subsequenct increment
+			deleteNodesAfter = deleteNodesAfter->next;
+			gapSize++;
+}
+		if (i >= position + count)
+		{
+			cout << "Delete after nodes" << deleteNodesAfter->elt << endl;
+			if (gapSize >=0) {
+				//deleteNodesbefore->next = NULL;
+				deleteNodesbefore->next = deleteNodesAfter;
+				deleteNodesbefore= deleteNodesbefore->next;
+				gapSize--;
+			}
+			deleteNodesAfter = deleteNodesAfter->next;
+			
+		}
+		
 	}
+	numElts = numElts - count;
 	//cout << currentFirstHalf->elt;
-	SequenceNode *currentSecondHalf = head;
+/*	SequenceNode *currentSecondHalf = head;
 	for (size_type i = 0; i < numElts; i++)
 	{
 		if (i >= position + count) {
@@ -295,7 +319,7 @@ void Sequence::erase(size_type position, size_type count)
 		cout << "modified First half" << currentFirstHalf->elt << endl;
 		currentFirstHalf = currentFirstHalf->next;
 
-	}
+	}*/
 	//cout << currentSecondHalf->elt;
 }
 //test 2
