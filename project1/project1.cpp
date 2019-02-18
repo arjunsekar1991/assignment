@@ -369,7 +369,6 @@ int main()
 		for (int i = 0; i < 10; i++) {
 			data[i] = (i + 1) * 100;
 		}
-		cout << "operation complete";
 		data.erase(3, 4);
 		cout << "Sequence:   " << data << endl;
 		cout << "Should be:  <100, 200, 300, 800, 900, 1000>" << endl << endl;
