@@ -258,11 +258,45 @@ void Sequence::insert(size_type position, value_type value)
 
 void Sequence::erase(size_type position, size_type count)
 {
-	SequenceNode *current = head;
-	for (size_type i = 0; i < position - 1; i++) 
+	SequenceNode *currentFirstHalf = head;
+	for (size_type i = 0; i < position; i++) 
 	{
-		current = current->next;
+		cout << "First half" <<currentFirstHalf->elt << endl;
+		currentFirstHalf = currentFirstHalf->next;
+
 	}
+
+	SequenceNode *deleteNodes = head;
+	for (size_type i = 0; i < position + count; i++) {
+		if (i > position - 1)
+			cout << "Delete  nodes" << deleteNodes->elt << endl;
+		deleteNodes = deleteNodes->next;
+
+
+	}
+	//cout << currentFirstHalf->elt;
+	SequenceNode *currentSecondHalf = head;
+	for (size_type i = 0; i < numElts; i++)
+	{
+		if (i >= position + count) {
+			cout << "second half" << currentSecondHalf->elt << endl;
+		}
+		
+		currentSecondHalf = currentSecondHalf->next;
+		
+
+	}
+
+	//currentFirstHalf->next = currentSecondHalf;
+	
+	currentFirstHalf = head;
+	for (size_type i = 0; i < numElts; i++)
+	{
+		cout << "modified First half" << currentFirstHalf->elt << endl;
+		currentFirstHalf = currentFirstHalf->next;
+
+	}
+	//cout << currentSecondHalf->elt;
 }
 //test 2
 /*
