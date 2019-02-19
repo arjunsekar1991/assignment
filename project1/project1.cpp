@@ -6,7 +6,7 @@ void testCopyConstructor(Sequence);
 
 int main()
 {
-
+	//tested
 	// Create a sequence of length four, store some values, and print
 	try {
 		cout << "Testing sequence creation and printing" << endl;
@@ -24,7 +24,7 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
-
+	//tested
 	// Test for independent sequences
 	try {
 		cout << "Testing multiple sequences" << endl;
@@ -46,8 +46,9 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
-
+	//test failed
 	// Test push_back
+	
 	try {
 		cout << "Testing push_back()" << endl;
 		cout << "-------------------" << endl;
@@ -84,7 +85,7 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-
+	//tested
 	// Test pop_back
 	try {
 		cout << "Testing pop_back()" << endl;
@@ -104,7 +105,7 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-
+	//tested
 	// Test pop_back on empty sequence
 	try {
 		cout << "Testing pop_back() on an empty sequence" << endl;
@@ -127,6 +128,7 @@ int main()
 	}
 
 	// Test insert()
+	//test failed tail has problem
 	try {
 		cout << "Testing insert()" << endl;
 		cout << "------------------" << endl;
