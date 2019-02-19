@@ -390,7 +390,7 @@ ostream& operator<<(ostream& os, Sequence& s)
 
  ostream& Sequence::print(ostream& os)
  {
-	 os << ",";
+	 os << ", ";
 	 return os;
  }
 
