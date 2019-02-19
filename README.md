@@ -111,6 +111,10 @@ Should be:  <100, 200, 300, 800>
 Sequence:   100,200
 Should be:  <300, 800>
 
+Testing erase() on invalid parameters
+------------------
+CORRECT: Threw exception: Invalid index
 
-C:\Users\arjun\Documents\Github\assignment\assignment\x64\Debug\project1.exe (process 18256) exited with code 0.
+
+C:\Users\arjun\Documents\Github\assignment\assignment\x64\Debug\project1.exe (process 17796) exited with code 0.
 Press any key to close this window . . .

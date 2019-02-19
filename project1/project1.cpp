@@ -387,6 +387,24 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
+	// Test erase with invalid parameters
+	try {
+		cout << "Testing erase() on invalid parameters" << endl;
+		cout << "------------------" << endl;
+		Sequence data(5);
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
+		data.erase(3, 5);
+		cout << "ERROR: erase() DID NOT throw an exception" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
 	/*
 	
 
@@ -414,23 +432,7 @@ int main()
 
 
 
-	// Test erase with invalid parameters
-	try {
-		cout << "Testing erase() on invalid parameters" << endl;
-		cout << "------------------" << endl;
-		Sequence data(5);
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-		data.erase(3, 5);
-		cout << "ERROR: erase() DID NOT throw an exception" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
-	}
+	
 
 
 	*/
