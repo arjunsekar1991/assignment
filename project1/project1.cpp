@@ -68,6 +68,7 @@ int main()
 	}
 
 	// Test push_back to an empty sequence
+	//tail failed
 	try {
 		cout << "Testing push_back() on an empty sequence" << endl;
 		cout << "-------------------" << endl;
@@ -177,6 +178,7 @@ int main()
 	}
 
 	// Test front()
+	//tested
 	try {
 		cout << "Testing front()" << endl;
 		cout << "---------------" << endl;
@@ -200,6 +202,7 @@ int main()
 	}
 
 	// Test front() on empty sequence
+	//tested
 	try {
 		cout << "Testing front() on an empty sequence" << endl;
 		cout << "------------------------------------" << endl;
@@ -215,6 +218,7 @@ int main()
 	}
 
 	// Test back()
+	//tested
 	try {
 		cout << "Testing back()" << endl;
 		cout << "---------------" << endl;
