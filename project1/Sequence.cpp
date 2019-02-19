@@ -61,6 +61,7 @@ void Sequence::push_back(const value_type& value)
 {
 	SequenceNode *currentNode = new SequenceNode();
 	currentNode->elt = value;
+	currentNode->next = NULL;
 	numElts++;
 	//cout << "tail value" << tail->elt<<endl;
 	if (head == NULL) 
@@ -69,6 +70,7 @@ void Sequence::push_back(const value_type& value)
 		head =tail= currentNode;
 		return;
 	}
+	currentNode->prev = tail;
 	tail->next =currentNode;
 	tail = currentNode;
 	currentNode->next = NULL;
@@ -78,18 +80,24 @@ void Sequence::push_back(const value_type& value)
 
 void Sequence::pop_back()
 {
-	SequenceNode *currentNode ;
-	if (tail == NULL)
+	SequenceNode *currentNode=tail;
+	if (tail == NULL||tail->prev==NULL)
 	{
 		throw exception("sequence is empty pop_back failed :)");
 	}
+	
+	if(tail->prev!=NULL){
 	currentNode = tail->prev;
-	if(tail->prev!=NULL)
-	currentNode->next = NULL;
+	//delete currentNode->next;
 	delete tail;
 	tail = currentNode;
+	tail->next = NULL;
+	tail->prev = currentNode->prev;
+	numElts--;
+	}
+	
 	//tail->next = nullptr;
-	numElts --;
+	
 	
 }
 
@@ -142,7 +150,7 @@ void Sequence::clear()
 	for (size_type i = 0; i < numElts; i++)
 	{
 		head = head->next;
-		currentNode= nullptr ;
+		delete currentNode;
 		currentNode=head;
 	}
 	numElts = 0;
@@ -223,10 +231,10 @@ void Sequence::insert(size_type position, value_type value)
 	if (position == 0) 
 	{
 		SequenceNode *tempNode = new SequenceNode();
-		
 		tempNode->prev = NULL;
 		tempNode->elt = value;
 		tempNode->next = head;
+		head->prev = tempNode;
 		this->head = tempNode;
 		numElts++;
 	}
@@ -241,12 +249,17 @@ void Sequence::insert(size_type position, value_type value)
 			current = current->next;
 		}
 		currentPlusOne = current->next;
+		
 		tempNode->elt = value;
-		current->next = tempNode;
-
 		tempNode->next = currentPlusOne;
 		tempNode->prev = current;
-		tempNode->prev = current->next;
+		
+		current->next = tempNode;
+		currentPlusOne->prev = tempNode;
+		
+		//tempNode->prev = current->next;
+
+		
 		numElts++;
 
 	}
