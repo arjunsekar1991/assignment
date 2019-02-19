@@ -265,27 +265,50 @@ void Sequence::erase(size_type position, size_type count)
 	SequenceNode *deleteNodes = head;
 	SequenceNode *deleteNodesbefore = head;
 	SequenceNode *deleteNodesAfter = head;
+	SequenceNode *stepBack = nullptr;
 	
 	int gapSize = 0;
 	for (size_type i = 0; i < numElts; i++) {
 		
 		if (i < position-1) 
 		{
+			
 			deleteNodesbefore = deleteNodesbefore->next;
 			//subsequence increment
 			deleteNodesAfter = deleteNodesAfter->next;
 			deleteNodes = deleteNodes->next;
+			if (i == position - 2) {
+				cout << "nodes before " << deleteNodesbefore->elt;
+			}
 		}
 
 		if (i > position - 1 && i< position + count+1)
 		{
 			
 			deleteNodes = deleteNodes->next;
+			if (i == position) {
+				stepBack = deleteNodes;
+					cout<<"node to delete"<<stepBack->elt;
+				
+			}
 			//subsequenct increment
 			deleteNodesAfter = deleteNodesAfter->next;
 			gapSize++;
 		}
-		if (i >= position + count)
+		if(i == position + count+1){
+			for (size_type i = count; i > 0; i--)
+			{
+				stepBack = stepBack->next;
+				cout << "these will be delete" << stepBack->prev->elt;
+				delete stepBack->prev;
+			}
+
+			cout << "node to delete after" << deleteNodesAfter->elt;
+			deleteNodesbefore->next = deleteNodesAfter;
+			deleteNodesAfter->prev = deleteNodesbefore;
+			//deleteNodesAfter->prev = deleteNodesbefore->next;
+		}
+			/*	if (i >= position + count)
 		{
 			
 			if (gapSize >=0) {
@@ -296,11 +319,13 @@ void Sequence::erase(size_type position, size_type count)
 			}
 			deleteNodesAfter = deleteNodesAfter->next;
 			
-		}
+		}*/
 		
 	}
-	numElts = numElts - count;
+	
 
+	
+	numElts = numElts - count;
 }
 
 ostream& operator<<(ostream& os, Sequence& s)
