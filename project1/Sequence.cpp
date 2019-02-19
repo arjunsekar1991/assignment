@@ -326,6 +326,37 @@ void Sequence::erase(size_type position, size_type count)
 			count--;
 		}
 	}
+	if (position == 0) {
+		numElts = numElts - count;
+		if (numElts - count > 2) {
+		SequenceNode *currentNode = head;
+		while (count > 0) {
+
+			currentNode = currentNode->next;
+			cout << "whats in current node" << currentNode->elt;
+			delete head;
+			currentNode->prev = NULL;
+			head = currentNode;
+			count--;
+		}
+		}
+		else {
+			SequenceNode *currentNode = head;
+			while (count > 0) {
+				
+				currentNode = currentNode->next;
+				cout << "whats in current node" << currentNode->elt;
+				delete head;
+				currentNode->prev = NULL;
+				head = currentNode;
+				
+				count--;
+			}
+			tail = currentNode->next;
+			
+		}
+		
+	}
 }
 
 ostream& operator<<(ostream& os, Sequence& s)
