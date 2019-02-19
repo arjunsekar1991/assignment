@@ -321,7 +321,6 @@ void Sequence::erase(size_type position, size_type count)
 	}
 	if (position + count == numElts) {
 		while(count>0){
-			cout << "number of times popback runs";
 			pop_back();
 			count--;
 		}
@@ -333,7 +332,6 @@ void Sequence::erase(size_type position, size_type count)
 		while (count > 0) {
 
 			currentNode = currentNode->next;
-			cout << "whats in current node" << currentNode->elt;
 			delete head;
 			currentNode->prev = NULL;
 			head = currentNode;
@@ -345,7 +343,6 @@ void Sequence::erase(size_type position, size_type count)
 			while (count > 0) {
 				
 				currentNode = currentNode->next;
-				cout << "whats in current node" << currentNode->elt;
 				delete head;
 				currentNode->prev = NULL;
 				head = currentNode;
