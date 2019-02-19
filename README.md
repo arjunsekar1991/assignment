@@ -29,6 +29,21 @@ Testing pop_back() on an empty sequence
 ------------------
 CORRECT: Threw exception: sequence is empty pop_back failed :)
 
+Testing insert()
+------------------
+Sequence:   100,200,300,999,400,500
+Should be:  <100, 200, 300, 999, 400, 500>
+
+Sequence:   888,100,200,300,999,400,500
+Should be:  <888, 100, 200, 300, 999, 400, 500>
+
+Sequence:   888,100,200,300,999,400,500,777
+Should be:  <888, 100, 200, 300, 999, 400, 500, 777>
+
+Testing insert() on an invalid index
+------------------
+CORRECT: Threw exception: Invalid Index
+
 Testing front()
 ---------------
 Front:     100
@@ -56,49 +71,15 @@ Testing empty()
 Empty sequence, empty returns: 1
 Non-empty sequence, empty returns: 0
 
-Testing clear()
----------------
-clear function 5clear function 5
-clear function 5
-clear function 5
-clear function 5
-clear function 5
-Sequence cleared, empty returned: 1
-Size returned:  0
-
 Testing size()
 ---------------
 Sequence length 7, size returned: 7
 Empty sequence, size returned: 0
 
-Testing copy constructor
-------------------
-Copied Sequence:        1,200,300,400,500
-Original Sequence:      100,200,300,400,500
-Should be:              <1, 200, 300, 400, 500>
-                        <100, 200, 300, 400, 500>
-
-Testing assignment (=) operator
-------------------
-Data1:      100,200,300,400,500
-Data2:      1,2,300,400,500
-Should be:  <100, 200, 300, 400, 500>
-            <1, 2, 300, 400, 500>
-
-Testing insert()
-------------------
-Sequence:   100,200,300,999,400,500
-Should be:  <100, 200, 300, 999, 400, 500>
-
-Sequence:   888,100,200,300,999,400,500
-Should be:  <888, 100, 200, 300, 999, 400, 500>
-
-Sequence:   888,100,200,300,999,400,500,777
-Should be:  <888, 100, 200, 300, 999, 400, 500, 777>
-
-Testing insert() on an invalid index
-------------------
-CORRECT: Threw exception: Invalid Index
+Testing clear()
+---------------
+Sequence cleared, empty returned: 1
+Size returned:  0
 
 Testing erase()
 ------------------
@@ -108,13 +89,27 @@ Should be:  <100, 200, 300, 800, 900, 1000>
 Sequence:   100,200,300,800
 Should be:  <100, 200, 300, 800>
 
-Sequence:   100,200
+Sequence:   300,800
 Should be:  <300, 800>
 
 Testing erase() on invalid parameters
 ------------------
 CORRECT: Threw exception: Invalid index
 
+Testing assignment (=) operator
+------------------
+Data1:      100,200,300,400,500
+Data2:      1,2,300,400,500
+Should be:  <100, 200, 300, 400, 500>
+            <1, 2, 300, 400, 500>
 
-C:\Users\arjun\Documents\Github\assignment\assignment\x64\Debug\project1.exe (process 17796) exited with code 0.
+Testing copy constructor
+------------------
+Copied Sequence:        1,200,300,400,500
+Original Sequence:      100,200,300,400,500
+Should be:              <1, 200, 300, 400, 500>
+                        <100, 200, 300, 400, 500>
+
+
+C:\Users\arjun\Documents\Github\assignment\assignment\x64\Debug\project1.exe (process 10600) exited with code 0.
 Press any key to close this window . . .
