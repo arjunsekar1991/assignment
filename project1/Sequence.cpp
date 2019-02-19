@@ -134,11 +134,10 @@ Sequence::size_type Sequence::size() const
 void Sequence::clear()
 {
 
-	cout << "clear function "<<numElts;
+	
 	SequenceNode *currentNode = head;
 	for (size_type i = 0; i < numElts; i++)
 	{
-		cout << "clear function " << numElts<<endl;
 		head = head->next;
 		currentNode= nullptr ;
 		currentNode=head;

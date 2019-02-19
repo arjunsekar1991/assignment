@@ -17,7 +17,6 @@ int main()
 		data[2] = 300;
 		cout << "Sequence:  " << data << endl;
 		cout << "Should be: <100, 200, 300, ???>" << endl << endl;
-		
 	}
 
 	catch (exception& e)
@@ -47,6 +46,7 @@ int main()
 		cout << "Exception: " << e.what() << endl << endl;
 	}
 
+
 	// Test push_back
 	try {
 		cout << "Testing push_back()" << endl;
@@ -65,6 +65,8 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
+	// Test push_back to an empty sequence
 	try {
 		cout << "Testing push_back() on an empty sequence" << endl;
 		cout << "-------------------" << endl;
@@ -102,6 +104,7 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
+
 	// Test pop_back on empty sequence
 	try {
 		cout << "Testing pop_back() on an empty sequence" << endl;
@@ -117,10 +120,60 @@ int main()
 		cout << "ERROR: Pop_back() DID NOT throw an exception" << endl << endl;
 
 	}
+
 	catch (exception& e)
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
+
+	// Test insert()
+	try {
+		cout << "Testing insert()" << endl;
+		cout << "------------------" << endl;
+
+		Sequence data(5);
+
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
+
+		data.insert(3, 999);
+		cout << "Sequence:   " << data << endl;
+		cout << "Should be:  <100, 200, 300, 999, 400, 500>" << endl << endl;
+
+		data.insert(0, 888);
+		cout << "Sequence:   " << data << endl;
+		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500>" << endl << endl;
+
+		data.insert(6, 777);
+		cout << "Sequence:   " << data << endl;
+		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500, 777>" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+	// Test insert on invalid index
+	try {
+		cout << "Testing insert() on an invalid index" << endl;
+		cout << "------------------" << endl;
+		Sequence data(3);
+		for (int i = 0; i < 3; i++) {
+			data[i] = (i + 1) * 100;
+		}
+		data.insert(5, 555);
+		cout << "ERROR: Pop_back() DID NOT throw an exception" << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
+	}
+
 	// Test front()
 	try {
 		cout << "Testing front()" << endl;
@@ -143,13 +196,13 @@ int main()
 	{
 		cout << "Exception: " << e.what() << endl << endl;
 	}
-	
+
 	// Test front() on empty sequence
 	try {
 		cout << "Testing front() on an empty sequence" << endl;
 		cout << "------------------------------------" << endl;
 		Sequence data(0);
-		Sequence::size_type result = data.front();
+		int result = data.front();
 		cout << "ERROR: front() DID NOT throw an exception" << endl << endl;
 
 	}
@@ -158,6 +211,7 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
+
 	// Test back()
 	try {
 		cout << "Testing back()" << endl;
@@ -196,7 +250,6 @@ int main()
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
 
-
 	// Test empty()
 	try {
 		cout << "Testing empty()" << endl;
@@ -207,6 +260,24 @@ int main()
 
 		cout << "Empty sequence, empty returns: " << empty_sequence.empty() << endl;
 		cout << "Non-empty sequence, empty returns: " << nonempty_sequence.empty() << endl << endl;
+
+	}
+
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
+
+	// Test size()
+	try {
+		cout << "Testing size()" << endl;
+		cout << "---------------" << endl;
+
+		Sequence data(7);
+		Sequence empty_sequence(0);
+
+		cout << "Sequence length 7, size returned: " << data.size() << endl;
+		cout << "Empty sequence, size returned: " << empty_sequence.size() << endl << endl;
 
 	}
 
@@ -236,129 +307,6 @@ int main()
 	catch (exception& e)
 	{
 		cout << "Exception: " << e.what() << endl << endl;
-	}
-	// Test size()
-	try {
-		cout << "Testing size()" << endl;
-		cout << "---------------" << endl;
-
-		Sequence data(7);
-		Sequence empty_sequence(0);
-
-		cout << "Sequence length 7, size returned: " << data.size() << endl;
-		cout << "Empty sequence, size returned: " << empty_sequence.size() << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-
-
-	
-
-
-	
-
-	// Test copy constructor
-	try {
-		cout << "Testing copy constructor" << endl;
-		cout << "------------------" << endl;
-		Sequence data(5);
-
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		testCopyConstructor(data);
-
-		cout << "Original Sequence:      " << data << endl;
-		cout << "Should be:              <1, 200, 300, 400, 500>" << endl;
-		cout << "                        <100, 200, 300, 400, 500>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-
-
-	// Test assignment (=) operator
-	try {
-		cout << "Testing assignment (=) operator" << endl;
-		cout << "------------------" << endl;
-		Sequence data1(5);
-		Sequence data2(0);
-
-		for (int i = 0; i < 5; i++) {
-			data1[i] = (i + 1) * 100;
-		}
-
-		data2 = data1;
-
-		data2[0] = 1;
-		data2[1] = 2;
-
-		cout << "Data1:      " << data1 << endl;
-		cout << "Data2:      " << data2 << endl;
-		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
-		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
-
-	}
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-
-
-	// Test insert()
-	try {
-		cout << "Testing insert()" << endl;
-		cout << "------------------" << endl;
-
-		Sequence data(5);
-
-		for (int i = 0; i < 5; i++) {
-			data[i] = (i + 1) * 100;
-		}
-
-		data.insert(3, 999);
-		cout << "Sequence:   " << data << endl;
-		cout << "Should be:  <100, 200, 300, 999, 400, 500>" << endl << endl;
-
-		data.insert(0, 888);
-		cout << "Sequence:   " << data << endl;
-		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500>" << endl << endl;
-
-		data.insert(6, 777);
-	    cout << "Sequence:   " << data << endl;
-		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500, 777>" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "Exception: " << e.what() << endl << endl;
-	}
-
-	// Test insert on invalid index
-	try {
-		cout << "Testing insert() on an invalid index" << endl;
-		cout << "------------------" << endl;
-		Sequence data(3);
-		for (int i = 0; i < 3; i++) {
-			data[i] = (i + 1) * 100;
-		}
-		data.insert(5, 555);
-		cout << "ERROR: Insert DID NOT throw an exception" << endl << endl;
-
-	}
-
-	catch (exception& e)
-	{
-		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
 
 	// Test erase
@@ -405,37 +353,57 @@ int main()
 	{
 		cout << "CORRECT: Threw exception: " << e.what() << endl << endl;
 	}
-	/*
-	
 
-	
-	
-	// Test push_back to an empty sequence
-	
+	// Test assignment (=) operator
+	try {
+		cout << "Testing assignment (=) operator" << endl;
+		cout << "------------------" << endl;
+		Sequence data1(5);
+		Sequence data2(0);
 
-	
+		for (int i = 0; i < 5; i++) {
+			data1[i] = (i + 1) * 100;
+		}
 
-	
+		data2 = data1;
 
-	
+		data2[0] = 1;
+		data2[1] = 2;
 
+		cout << "Data1:      " << data1 << endl;
+		cout << "Data2:      " << data2 << endl;
+		cout << "Should be:  <100, 200, 300, 400, 500>" << endl;
+		cout << "            <1, 2, 300, 400, 500>" << endl << endl;
 
+	}
 
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 
+	// Test copy constructor
+	try {
+		cout << "Testing copy constructor" << endl;
+		cout << "------------------" << endl;
+		Sequence data(5);
 
-	
-	
+		for (int i = 0; i < 5; i++) {
+			data[i] = (i + 1) * 100;
+		}
 
-	
+		testCopyConstructor(data);
 
+		cout << "Original Sequence:      " << data << endl;
+		cout << "Should be:              <1, 200, 300, 400, 500>" << endl;
+		cout << "                        <100, 200, 300, 400, 500>" << endl << endl;
 
+	}
 
-
-
-	
-
-
-	*/
+	catch (exception& e)
+	{
+		cout << "Exception: " << e.what() << endl << endl;
+	}
 
 } // END OF MAIN
 
