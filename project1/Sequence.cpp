@@ -84,8 +84,11 @@ void Sequence::pop_back()
 		throw exception("sequence is empty pop_back failed :)");
 	}
 	currentNode = tail->prev;
+	if(tail->prev!=NULL)
+	currentNode->next = NULL;
 	delete tail;
 	tail = currentNode;
+	//tail->next = nullptr;
 	numElts --;
 	
 }
@@ -261,71 +264,68 @@ void Sequence::erase(size_type position, size_type count)
 	{
 		throw exception("Invalid index");
 	}
+	if(position!=0&&position+count!=numElts)
+	{
 
-	SequenceNode *deleteNodes = head;
-	SequenceNode *deleteNodesbefore = head;
-	SequenceNode *deleteNodesAfter = head;
-	SequenceNode *stepBack = nullptr;
+		SequenceNode *deleteNodes = head;
+		SequenceNode *deleteNodesbefore = head;
+		SequenceNode *deleteNodesAfter = head;
+		SequenceNode *stepBack = nullptr;
 	
-	int gapSize = 0;
-	for (size_type i = 0; i < numElts; i++) {
+	
+		for (size_type i = 0; i < numElts; i++) {
 		
-		if (i < position-1) 
-		{
-			
-			deleteNodesbefore = deleteNodesbefore->next;
-			//subsequence increment
-			deleteNodesAfter = deleteNodesAfter->next;
-			deleteNodes = deleteNodes->next;
-			if (i == position - 2) {
-				cout << "nodes before " << deleteNodesbefore->elt;
-			}
-		}
-
-		if (i > position - 1 && i< position + count+1)
-		{
-			
-			deleteNodes = deleteNodes->next;
-			if (i == position) {
-				stepBack = deleteNodes;
-					cout<<"node to delete"<<stepBack->elt;
-				
-			}
-			//subsequenct increment
-			deleteNodesAfter = deleteNodesAfter->next;
-			gapSize++;
-		}
-		if(i == position + count+1){
-			for (size_type i = count; i > 0; i--)
+			if (i < position-1) 
 			{
-				stepBack = stepBack->next;
-				cout << "these will be delete" << stepBack->prev->elt;
-				delete stepBack->prev;
+			
+				deleteNodesbefore = deleteNodesbefore->next;
+				//subsequence increment
+				deleteNodesAfter = deleteNodesAfter->next;
+				deleteNodes = deleteNodes->next;
+			
 			}
 
-			cout << "node to delete after" << deleteNodesAfter->elt;
-			deleteNodesbefore->next = deleteNodesAfter;
-			deleteNodesAfter->prev = deleteNodesbefore;
-			//deleteNodesAfter->prev = deleteNodesbefore->next;
-		}
-			/*	if (i >= position + count)
-		{
+			if (i > position - 1 && i< position + count+1)
+			{
 			
-			if (gapSize >=0) {
-				//deleteNodesbefore->next = NULL;
+				deleteNodes = deleteNodes->next;
+				if (i == position) {
+					stepBack = deleteNodes;
+					
+				
+				}
+				//subsequenct increment
+				deleteNodesAfter = deleteNodesAfter->next;
+			
+			}
+			if(i == position + count+1){
+				for (size_type i = count; i > 0; i--)
+				{
+					stepBack = stepBack->next;
+				
+					delete stepBack->prev;
+				}
+
+			
 				deleteNodesbefore->next = deleteNodesAfter;
-				deleteNodesbefore= deleteNodesbefore->next;
-				gapSize--;
+				deleteNodesAfter->prev = deleteNodesbefore;
+				//deleteNodesAfter->prev = deleteNodesbefore->next;
 			}
-			deleteNodesAfter = deleteNodesAfter->next;
 			
-		}*/
 		
-	}
+		}
 	
 
 	
-	numElts = numElts - count;
+		numElts = numElts - count;
+	}
+	if (position + count == numElts) {
+		while(count>0){
+			cout << "number of times popback runs";
+			pop_back();
+			count--;
+		}
+	}
 }
 
 ostream& operator<<(ostream& os, Sequence& s)
