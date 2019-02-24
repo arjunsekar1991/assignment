@@ -1,4 +1,6 @@
-#include "pch.h"
+#include <iostream>
+#include <iomanip>
+#include "sequence.h"
 
 Sequence::Sequence(size_type sz)
 {
@@ -265,7 +267,16 @@ void Sequence::insert(size_type position, value_type value)
 	}
 	if (position == numElts - 1) 
 	{
-		this->push_back(value);
+		SequenceNode *tempNode = tail->prev;
+		SequenceNode *newNode= new SequenceNode();
+		tempNode->next = newNode;
+		newNode->prev = tempNode;
+		newNode->elt = value;
+		newNode->next = tail;
+		tail->prev = newNode;
+		
+	//	this->head = tempNode;
+		numElts++;
 	}
 	
 

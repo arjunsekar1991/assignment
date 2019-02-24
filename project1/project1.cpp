@@ -150,7 +150,7 @@ int main()
 
 		data.insert(6, 777);
 		cout << "Sequence:   " << data << endl;
-		cout << "Should be:  <888, 100, 200, 300, 999, 400, 500, 777>" << endl << endl;
+		cout << "Should be:  <888, 100, 200, 300, 999, 400, 777, 500>" << endl << endl;
 
 	}
 
