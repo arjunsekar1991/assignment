@@ -274,8 +274,6 @@ void Sequence::insert(size_type position, value_type value)
 		newNode->elt = value;
 		newNode->next = tail;
 		tail->prev = newNode;
-		
-	//	this->head = tempNode;
 		numElts++;
 	}
 	
