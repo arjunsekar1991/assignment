@@ -1,7 +1,9 @@
 #include <iostream>
 #include <iomanip>
 #include "sequence.h"
-
+/* sequence constructor will initialize given number of sequence nodes in sequence object to zero
+input sequence size output sequence object (parameterized constructor)
+*/
 Sequence::Sequence(size_type sz)
 {
 	numElts = sz;
@@ -9,6 +11,7 @@ Sequence::Sequence(size_type sz)
 	{
 		for (size_type i = 0; i < numElts; i++) 
 		{
+
 			if ( i == 0) {
 				SequenceNode *currentNode = new SequenceNode();
 				currentNode->prev = NULL;
@@ -30,7 +33,7 @@ Sequence::Sequence(size_type sz)
 				head = tail = NULL;
 	}
 }
-
+//overloaded [] operator for getting the element value like an array
 Sequence::value_type& Sequence::operator[](size_type position)
 {
 	SequenceNode *current = head;
@@ -38,7 +41,7 @@ Sequence::value_type& Sequence::operator[](size_type position)
 		current = current->next;
 	return current->elt;
 }
-
+//destructor will destroy all the sequence nodes and delete all pointers like head tail
 Sequence::~Sequence()
 {
 	SequenceNode *currentNode;
@@ -59,6 +62,7 @@ Sequence::~Sequence()
 	delete head;
 	delete tail;
 }
+// input is value to be added to the sequence .. This method will add the element at the last of the sequence 
 void Sequence::push_back(const value_type& value)
 {
 	SequenceNode *currentNode = new SequenceNode();
@@ -79,7 +83,7 @@ void Sequence::push_back(const value_type& value)
 }
 
 
-
+// This method will remove the element at the last of the sequence 
 void Sequence::pop_back()
 {
 	SequenceNode *currentNode=tail;
@@ -102,6 +106,7 @@ void Sequence::pop_back()
 	
 	
 }
+// This method will get the value of first element from the sequence object
 
 const Sequence::value_type& Sequence::front() const 
 {
@@ -116,7 +121,7 @@ const Sequence::value_type& Sequence::front() const
 	}
 	
 }
-
+// This method will get the value of last element from the sequence object
 const Sequence::value_type& Sequence::back() const
 {
 	if (numElts == 0) {
@@ -127,6 +132,7 @@ const Sequence::value_type& Sequence::back() const
 		return tail->elt;
 	}
 }
+// This will check whether the sequence is empty or not
 bool Sequence::empty() const
 {
 	if (numElts > 0) 
@@ -138,12 +144,13 @@ bool Sequence::empty() const
 		return true;
 	}
 }
-
+// this method will return the number of elements in the sequence object
 Sequence::size_type Sequence::size() const
 {
 	return numElts;
 }
 
+// This will clear all the elements in the sequence object and set number of elements to zero
 void Sequence::clear()
 {
 
@@ -158,14 +165,14 @@ void Sequence::clear()
 	numElts = 0;
 	head = tail = nullptr;
 }
-
+//overloading the = operator for the sequence object will allow us the enhanced assigment like s1 = s2 where s1 and s2 are sequence object
 Sequence& Sequence::operator=(const Sequence& s)
 {
 	if (this != &s) 
 	{
 		this->numElts = s.numElts;
 		SequenceNode *currentNode = new SequenceNode();
-
+		//copying all the values that is avaible in the source sequence into the target sequence 
 		for (size_type i = 0; i < s.numElts; i++)
 		{
 			if (i == 0) 
@@ -192,7 +199,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 
 	return *this;
 }
-
+// copy constructor for the sequence
 Sequence::Sequence(const Sequence& s)
 {
 	this->numElts = s.numElts;
@@ -222,14 +229,15 @@ Sequence::Sequence(const Sequence& s)
 		}
 	}
 }
-
+// insert function input position or index and value to be inserted
 void Sequence::insert(size_type position, value_type value)
 {
+	// if postion > numElts-1 then the index is invalid
 	if (position > numElts - 1) 
 	{
 		throw exception("Invalid Index");
 	}
-
+	//code block that will allow us to insert the sequence node  at position 0 head
 	if (position == 0) 
 	{
 		SequenceNode *tempNode = new SequenceNode();
@@ -240,6 +248,7 @@ void Sequence::insert(size_type position, value_type value)
 		this->head = tempNode;
 		numElts++;
 	}
+	// this code will allow us to insert the sequence in between head and tail
 	if (position > 0 && position < numElts - 1) 
 	{
 		SequenceNode *current = head;
@@ -265,6 +274,7 @@ void Sequence::insert(size_type position, value_type value)
 		numElts++;
 
 	}
+	// inserting in the tail of the sequence
 	if (position == numElts - 1) 
 	{
 		SequenceNode *tempNode = tail->prev;
@@ -279,13 +289,15 @@ void Sequence::insert(size_type position, value_type value)
 	
 
 }
-
+/* Erase method input position(start of the index ) from where to erase and 
+count will determine the number of elements to be erased*/
 void Sequence::erase(size_type position, size_type count)
 {
 	if (position > numElts - 1 || numElts < count+position) 
 	{
 		throw exception("Invalid index");
 	}
+	//position and cound is in valid index range and not touching the head and tail
 	if(position!=0&&position+count!=numElts)
 	{
 
@@ -294,7 +306,7 @@ void Sequence::erase(size_type position, size_type count)
 		SequenceNode *deleteNodesAfter = head;
 		SequenceNode *stepBack = nullptr;
 	
-	
+		
 		for (size_type i = 0; i < numElts; i++) {
 		
 			if (i < position-1) 
@@ -341,12 +353,14 @@ void Sequence::erase(size_type position, size_type count)
 	
 		numElts = numElts - count;
 	}
+	//delete range equals to numelts touching the head and tail pointers
 	if (position + count == numElts) {
 		while(count>0){
 			pop_back();
 			count--;
 		}
 	}
+	//erasing the elements from the head and handling some exception cases as well
 	if (position == 0) {
 		numElts = numElts - count;
 		if (numElts - count > 2) {
@@ -377,7 +391,7 @@ void Sequence::erase(size_type position, size_type count)
 		
 	}
 }
-
+// overloaded << operator that will allow us to print the sequence like this cout<<sequence
 ostream& operator<<(ostream& os, Sequence& s)
 {
 	if (s.size() > 0) 
@@ -396,7 +410,7 @@ ostream& operator<<(ostream& os, Sequence& s)
 	}
 	return os;
 }
-
+//print function to join ", " between the each and every element of sequence object
  ostream& Sequence::print(ostream& os)
  {
 	 os << ", ";
