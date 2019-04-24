@@ -11,7 +11,7 @@ Sequence::Sequence(size_type sz)
 	{
 		for (size_type i = 0; i < numElts; i++) 
 		{
-
+			// This is applicable for the first element 
 			if ( i == 0) {
 				SequenceNode *currentNode = new SequenceNode();
 				currentNode->prev = NULL;
@@ -19,6 +19,7 @@ Sequence::Sequence(size_type sz)
 				head = currentNode;
 				tail = currentNode;
 			}
+			// This is not applicable for the first element and all the elements except first will follow below routine
 			if (i > 0 && i < numElts) {
 				SequenceNode *currentNode = new SequenceNode();
 				currentNode->elt = 0;
@@ -73,9 +74,11 @@ void Sequence::push_back(const value_type& value)
 	if (head == NULL) 
 	{
 		currentNode->prev = NULL;
+		//pushing to the head when nothing in the sequence
 		head =tail= currentNode;
 		return;
 	}
+	//pushing to the tail when something already in the sequence
 	currentNode->prev = tail;
 	tail->next =currentNode;
 	tail = currentNode;
@@ -94,7 +97,7 @@ void Sequence::pop_back()
 	
 	if(tail->prev!=NULL){
 	currentNode = tail->prev;
-	//delete currentNode->next;
+	//take out the last element from the sequence
 	delete tail;
 	tail = currentNode;
 	tail->next = NULL;
@@ -113,6 +116,7 @@ const Sequence::value_type& Sequence::front() const
 
 	if (numElts==0) 
 	{
+		//throws exception when nothing is present in the sequence
 		throw exception("Invalid index :)");
 	}
 	else
@@ -125,6 +129,7 @@ const Sequence::value_type& Sequence::front() const
 const Sequence::value_type& Sequence::back() const
 {
 	if (numElts == 0) {
+		//throws exception when nothing is present in the sequence
 		throw exception("Invalid index :)");
 	}
 	else
@@ -153,7 +158,7 @@ Sequence::size_type Sequence::size() const
 // This will clear all the elements in the sequence object and set number of elements to zero
 void Sequence::clear()
 {
-
+	// this will clear the complete sequence set number of elements to zero and delete head , tail pointers
 	
 	SequenceNode *currentNode = head;
 	for (size_type i = 0; i < numElts; i++)
@@ -165,9 +170,12 @@ void Sequence::clear()
 	numElts = 0;
 	head = tail = nullptr;
 }
-//overloading the = operator for the sequence object will allow us the enhanced assigment like s1 = s2 where s1 and s2 are sequence object
+/*overloading the = operator for the sequence object will allow us the enhanced assigment like s1 = s2 where s1 and s2 are sequence object
+Input is sequence object reference
+*/
 Sequence& Sequence::operator=(const Sequence& s)
 {
+	// (handle s1 =s1 ) equal to is used to assign one sequence to another sequence and both are same
 	if (this != &s) 
 	{
 		this->numElts = s.numElts;
@@ -175,6 +183,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 		//copying all the values that is avaible in the source sequence into the target sequence 
 		for (size_type i = 0; i < s.numElts; i++)
 		{
+			// Below routine is applicable for the first element 
 			if (i == 0) 
 			{
 				SequenceNode *tempNode = new SequenceNode();
@@ -184,7 +193,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 				this->head = tempNode;
 				this->tail = this->head;
 			}
-
+			// This is not applicable for the first element and all the elements except first will follow below routine
 			if (i > 0 && i < numElts) 
 			{
 				SequenceNode *tempNode = new SequenceNode();
@@ -199,7 +208,7 @@ Sequence& Sequence::operator=(const Sequence& s)
 
 	return *this;
 }
-// copy constructor for the sequence
+// copy constructor for the sequence input sequence object reference
 Sequence::Sequence(const Sequence& s)
 {
 	this->numElts = s.numElts;
@@ -207,7 +216,8 @@ Sequence::Sequence(const Sequence& s)
 	
 	for (size_type i = 0; i < s.numElts; i++)
 	{
-
+		// Below routine is applicable for the first element  during copy
+		//copying contents from source to target
 		if (i == 0)
 		{
 			SequenceNode *tempNode = new SequenceNode();
@@ -217,7 +227,8 @@ Sequence::Sequence(const Sequence& s)
 			this->head = tempNode;
 			this->tail = this->head;
 		}
-
+		// This is not applicable for the first element and all the elements except first will follow below routine
+		//copying contents from source to target
 		if (i > 0 && i < numElts) 
 		{
 			SequenceNode *tempNode = new SequenceNode();
@@ -297,7 +308,7 @@ void Sequence::erase(size_type position, size_type count)
 	{
 		throw exception("Invalid index");
 	}
-	//position and cound is in valid index range and not touching the head and tail
+	//position and cound is in valid index range and not exceeding allowed limit of numElts-1
 	if(position!=0&&position+count!=numElts)
 	{
 
@@ -308,7 +319,7 @@ void Sequence::erase(size_type position, size_type count)
 	
 		
 		for (size_type i = 0; i < numElts; i++) {
-		
+			
 			if (i < position-1) 
 			{
 			
@@ -318,7 +329,8 @@ void Sequence::erase(size_type position, size_type count)
 				deleteNodes = deleteNodes->next;
 			
 			}
-
+			// i is in range of position -1 and position+count+1
+			//delete the range of elements from position and count
 			if (i > position - 1 && i< position + count+1)
 			{
 			
@@ -360,7 +372,7 @@ void Sequence::erase(size_type position, size_type count)
 			count--;
 		}
 	}
-	//erasing the elements from the head and handling some exception cases as well
+	//erasing the elements from the head and handling some exception cases like only 2 elements in the  sequence
 	if (position == 0) {
 		numElts = numElts - count;
 		if (numElts - count > 2) {
